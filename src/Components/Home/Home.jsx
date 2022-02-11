@@ -1,8 +1,9 @@
 import React from "react";
 import {useGetCoinsQuery} from "../../ApiCalls/CoinsApi"
 import millify from "millify";
+import CryptoCard from "../CryptoCard/CryptoCard";
 function Home() {
-    const {data , isFetching} = useGetCoinsQuery();
+    const {data , isFetching} = useGetCoinsQuery(12);
     console.log(data);
     const globalStats= data?.data?.stats;
     if (isFetching) return 'Loading...'
@@ -25,7 +26,7 @@ function Home() {
         <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1"><i class="fab fa-bitcoin"></i></span>
+              <span class="info-box-icon bg-warning elevation-1"><i class="fab fa-bitcoin"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Total Cryptocurrencies</span>
@@ -70,7 +71,7 @@ function Home() {
          
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-clock"></i></span>
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-clock"></i></span>
 
               <div class="info-box-content"> 
                 <span class="info-box-text">Total 24h Volume</span>
@@ -82,253 +83,16 @@ function Home() {
           </div>
          
         </div>
-        <h4 class="mb-2 ">Cards</h4>
+        <h4 class="mb-2 ">Top 12 Cryptocurrencies Worldwide</h4>
         <div class="row">
-         
+         <CryptoCard simplified />
  
-          <div class="col-md-3">
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Collapsable</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-              
-              </div>
-            
-              <div class="card-body" style={{display: "block"}}>
-                The body of the card
-              </div>
-            
-            </div>
-      
-          </div>
-          <div class="col-md-3">
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Collapsable</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-              
-              </div>
-            
-              <div class="card-body" style={{display: "block"}}>
-                The body of the card
-              </div>
-            
-            </div>
-      
-          </div>
-          <div class="col-md-3">
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Collapsable</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-              
-              </div>
-            
-              <div class="card-body" style={{display: "block"}}>
-                The body of the card
-              </div>
-            
-            </div>
-      
-          </div>
-          <div class="col-md-3">
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Collapsable</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-              
-              </div>
-            
-              <div class="card-body" style={{display: "block"}}>
-                The body of the card
-              </div>
-            
-            </div>
-      
-          </div>
+          
+         
          
          
         </div>
-        <div class="row">
-         
- 
-          <div class="col-md-3">
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Collapsable</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-              
-              </div>
-            
-              <div class="card-body" style={{display: "block"}}>
-                The body of the card
-              </div>
-            
-            </div>
-      
-          </div>
-          <div class="col-md-3">
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Collapsable</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-              
-              </div>
-            
-              <div class="card-body" style={{display: "block"}}>
-                The body of the card
-              </div>
-            
-            </div>
-      
-          </div>
-          <div class="col-md-3">
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Collapsable</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-              
-              </div>
-            
-              <div class="card-body" style={{display: "block"}}>
-                The body of the card
-              </div>
-            
-            </div>
-      
-          </div>
-          <div class="col-md-3">
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Collapsable</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-              
-              </div>
-            
-              <div class="card-body" style={{display: "block"}}>
-                The body of the card
-              </div>
-            
-            </div>
-      
-          </div>
-         
-         
-        </div>
-        <div class="row">
-         
- 
-          <div class="col-md-3">
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Collapsable</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-              
-              </div>
-            
-              <div class="card-body" style={{display: "block"}}>
-                The body of the card
-              </div>
-            
-            </div>
-      
-          </div>
-          <div class="col-md-3">
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Collapsable</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-              
-              </div>
-            
-              <div class="card-body" style={{display: "block"}}>
-                The body of the card
-              </div>
-            
-            </div>
-      
-          </div>
-          <div class="col-md-3">
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Collapsable</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-              
-              </div>
-            
-              <div class="card-body" style={{display: "block"}}>
-                The body of the card
-              </div>
-            
-            </div>
-      
-          </div>
-          <div class="col-md-3">
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Collapsable</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-              
-              </div>
-            
-              <div class="card-body" style={{display: "block"}}>
-                The body of the card
-              </div>
-            
-            </div>
-      
-          </div>
-         
-         
-        </div>
+       
         <h4 class="mb-2 ">News</h4>
         <div class="card card-success">
           <div class="card-body">

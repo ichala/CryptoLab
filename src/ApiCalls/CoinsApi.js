@@ -11,7 +11,7 @@ const CoinsApiHeaders = {
     baseQuery :fetchBaseQuery({baseUrl:"https://coinranking1.p.rapidapi.com/"}),
     endpoints : (builder) => ({
         getCoins :builder.query({
-            query:() => createRequest('/coins')
+            query:(count) => createRequest('/coins?limit='+count)
         })
     })
   })
