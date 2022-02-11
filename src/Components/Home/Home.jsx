@@ -1,5 +1,6 @@
 import React from "react";
 import {useGetCoinsQuery} from "../../ApiCalls/CoinsApi"
+import millify from "millify";
 function Home() {
     const {data , isFetching} = useGetCoinsQuery();
     console.log(data);
@@ -24,7 +25,7 @@ function Home() {
         <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+              <span class="info-box-icon bg-info elevation-1"><i class="fab fa-bitcoin"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Total Cryptocurrencies</span>
@@ -39,11 +40,11 @@ function Home() {
    
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-exchange-alt"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Total Exchanges</span>
-                <span class="info-box-number">41,410</span>
+                <span class="info-box-number">{globalStats.totalExchanges}</span>
               </div>
            
             </div>
@@ -56,11 +57,11 @@ function Home() {
 
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-bullseye"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Total Market Cap</span>
-                <span class="info-box-number">760</span>
+                <span class="info-box-number">{millify(Number(globalStats.totalMarketCap))}</span>
               </div>
           
             </div>
@@ -69,11 +70,11 @@ function Home() {
          
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-clock"></i></span>
 
-              <div class="info-box-content">
+              <div class="info-box-content"> 
                 <span class="info-box-text">Total 24h Volume</span>
-                <span class="info-box-number">2,000</span>
+                <span class="info-box-number">{millify(Number(globalStats.total24hVolume))}</span>
               </div>
             
             </div>
