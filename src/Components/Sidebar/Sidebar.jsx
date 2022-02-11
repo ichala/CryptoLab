@@ -3,35 +3,35 @@ import React from "react";
 function Sidebar() {
   return (
     <div>
-      <nav class="main-header navbar navbar-expand navbar-dark">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#" role="button">
-              <i class="fas fa-bars"></i>
+      <nav className="main-header navbar navbar-expand navbar-dark">
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <a className="nav-link" data-widget="pushmenu" href="#" role="button">
+              <i className="fas fa-bars"></i>
             </a>
           </li>
          
         </ul>
 
-        <ul class="navbar-nav ml-auto"></ul>
+        <ul className="navbar-nav ml-auto"></ul>
       </nav>
-      <aside class="main-sidebar sidebar-dark-warning elevation-4">
-        <a href="../../index3.html" class="brand-link">
+      <aside className="main-sidebar sidebar-dark-warning elevation-4">
+        <a href="../../index3.html" className="brand-link">
         🔬
-          <span class="brand-text font-weight-light">CryptoLab</span>
+          <span className="brand-text font-weight-light">CryptoLab</span>
         </a>
 
-        <div class="sidebar" style={{ marginTop: "0px" }}>
-          <nav class="mt-2">
+        <div className="sidebar" style={{ marginTop: "0px" }}>
+          <nav className="mt-2">
             <ul
-              class="nav nav-pills nav-sidebar flex-column"
+              className="nav nav-pills nav-sidebar flex-column"
               data-widget="treeview"
               role="menu"
               data-accordion="false"
             >
-              <li class="nav-item">
-                <a href="/docs/3.1//layout.html" class="nav-link">
-                  <i class="nav-icon fas fa-home"></i>
+              <li className="nav-item">
+                <a href="/docs/3.1//layout.html" className="nav-link">
+                  <i className="nav-icon fas fa-home"></i>
                   <p>Home</p>
                 </a>
               </li>

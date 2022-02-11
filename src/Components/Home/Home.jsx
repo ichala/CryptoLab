@@ -4,33 +4,32 @@ import millify from "millify";
 import CryptoCard from "../CryptoCard/CryptoCard";
 function Home() {
     const {data , isFetching} = useGetCoinsQuery(12);
-    console.log(data);
     const globalStats= data?.data?.stats;
     if (isFetching) return 'Loading...'
   return (
     <div>
       {" "}
-      <section class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
+      <section className="content-header">
+        <div className="container-fluid">
+          <div className="row mb-2">
+            <div className="col-sm-6">
               <h1>Home Page</h1>
             </div>
            
           </div>
         </div>
       </section>
-      <section class="content">
-      <div class="container-fluid">
+      <section className="content">
+      <div className="container-fluid">
      
-        <div class="row">
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box">
-              <span class="info-box-icon bg-warning elevation-1"><i class="fab fa-bitcoin"></i></span>
+        <div className="row">
+          <div className="col-12 col-sm-6 col-md-3">
+            <div className="info-box">
+              <span className="info-box-icon bg-warning elevation-1"><i className="fab fa-bitcoin"></i></span>
 
-              <div class="info-box-content">
-                <span class="info-box-text">Total Cryptocurrencies</span>
-                <span class="info-box-number">
+              <div className="info-box-content">
+                <span className="info-box-text">Total Cryptocurrencies</span>
+                <span className="info-box-number">
                   {globalStats.total}
                 </span>
               </div>
@@ -39,13 +38,13 @@ function Home() {
     
           </div>
    
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-exchange-alt"></i></span>
+          <div className="col-12 col-sm-6 col-md-3">
+            <div className="info-box mb-3">
+              <span className="info-box-icon bg-danger elevation-1"><i className="fas fa-exchange-alt"></i></span>
 
-              <div class="info-box-content">
-                <span class="info-box-text">Total Exchanges</span>
-                <span class="info-box-number">{globalStats.totalExchanges}</span>
+              <div className="info-box-content">
+                <span className="info-box-text">Total Exchanges</span>
+                <span className="info-box-number">{globalStats.totalExchanges}</span>
               </div>
            
             </div>
@@ -54,28 +53,28 @@ function Home() {
        
 
       
-          <div class="clearfix hidden-md-up"></div>
+          <div className="clearfix hidden-md-up"></div>
 
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-bullseye"></i></span>
+          <div className="col-12 col-sm-6 col-md-3">
+            <div className="info-box mb-3">
+              <span className="info-box-icon bg-success elevation-1"><i className="fas fa-bullseye"></i></span>
 
-              <div class="info-box-content">
-                <span class="info-box-text">Total Market Cap</span>
-                <span class="info-box-number">{millify(Number(globalStats.totalMarketCap))}</span>
+              <div className="info-box-content">
+                <span className="info-box-text">Total Market Cap</span>
+                <span className="info-box-number">{millify(Number(globalStats.totalMarketCap))}</span>
               </div>
           
             </div>
           
           </div>
          
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-clock"></i></span>
+          <div className="col-12 col-sm-6 col-md-3">
+            <div className="info-box mb-3">
+              <span className="info-box-icon bg-info elevation-1"><i className="fas fa-clock"></i></span>
 
-              <div class="info-box-content"> 
-                <span class="info-box-text">Total 24h Volume</span>
-                <span class="info-box-number">{millify(Number(globalStats.total24hVolume))}</span>
+              <div className="info-box-content"> 
+                <span className="info-box-text">Total 24h Volume</span>
+                <span className="info-box-number">{millify(Number(globalStats.total24hVolume))}</span>
               </div>
             
             </div>
@@ -84,58 +83,58 @@ function Home() {
          
         </div>
       
-        <div class="row">
+        <div className="row">
        <div className="col-12">
 
      
-        <div class="card">
-              <div class="card-header mb-1">
-                <h3 class="card-title">Top 12 Cryptocurrencies worldwide</h3>
+        <div className="card">
+              <div className="card-header mb-1">
+                <h3 className="card-title">Top 12 Cryptocurrencies worldwide</h3>
 
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
+                <div className="card-tools">
+                  <button type="button" className="btn btn-tool" data-card-widget="collapse">
+                    <i className="fas fa-minus"></i>
                   </button>
                 </div>
               </div>
              
-              <div class="card-body m-1 p-0">
+              <div className="card-body m-1 p-0">
               <CryptoCard simplified />
               </div>
            
             </div></div>
           </div>
-        <h4 class="mb-2 ">News</h4>
-        <div class="card card-success">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-12 col-lg-6 col-xl-4">
-                <div class="card mb-2 bg-gradient-dark">
-                  <img class="card-img-top" src="../dist/img/photo1.png" alt="Dist Photo 1" />
-                  <div class="card-img-overlay d-flex flex-column justify-content-end">
-                    <h5 class="card-title text-primary text-white">Card Title</h5>
-                    <p class="card-text text-white pb-2 pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.</p>
-                    <a href="#" class="text-white">Last update 2 mins ago</a>
+        <h4 className="mb-2 ">News</h4>
+        <div className="card card-success">
+          <div className="card-body">
+            <div className="row">
+              <div className="col-md-12 col-lg-6 col-xl-4">
+                <div className="card mb-2 bg-gradient-dark">
+                  <img className="card-img-top" src="../dist/img/photo1.png" alt="Dist Photo 1" />
+                  <div className="card-img-overlay d-flex flex-column justify-content-end">
+                    <h5 className="card-title text-primary text-white">Card Title</h5>
+                    <p className="card-text text-white pb-2 pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.</p>
+                    <a href="#" className="text-white">Last update 2 mins ago</a>
                   </div>
                 </div>
               </div>
-              <div class="col-md-12 col-lg-6 col-xl-4">
-                <div class="card mb-2 bg-gradient-dark">
-                  <img class="card-img-top" src="../dist/img/photo1.png" alt="Dist Photo 1" />
-                  <div class="card-img-overlay d-flex flex-column justify-content-end">
-                    <h5 class="card-title text-primary text-white">Card Title</h5>
-                    <p class="card-text text-white pb-2 pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.</p>
-                    <a href="#" class="text-white">Last update 2 mins ago</a>
+              <div className="col-md-12 col-lg-6 col-xl-4">
+                <div className="card mb-2 bg-gradient-dark">
+                  <img className="card-img-top" src="../dist/img/photo1.png" alt="Dist Photo 1" />
+                  <div className="card-img-overlay d-flex flex-column justify-content-end">
+                    <h5 className="card-title text-primary text-white">Card Title</h5>
+                    <p className="card-text text-white pb-2 pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.</p>
+                    <a href="#" className="text-white">Last update 2 mins ago</a>
                   </div>
                 </div>
               </div>
-              <div class="col-md-12 col-lg-6 col-xl-4">
-                <div class="card mb-2 bg-gradient-dark">
-                  <img class="card-img-top" src="../dist/img/photo1.png" alt="Dist Photo 1" />
-                  <div class="card-img-overlay d-flex flex-column justify-content-end">
-                    <h5 class="card-title text-primary text-white">Card Title</h5>
-                    <p class="card-text text-white pb-2 pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.</p>
-                    <a href="#" class="text-white">Last update 2 mins ago</a>
+              <div className="col-md-12 col-lg-6 col-xl-4">
+                <div className="card mb-2 bg-gradient-dark">
+                  <img className="card-img-top" src="../dist/img/photo1.png" alt="Dist Photo 1" />
+                  <div className="card-img-overlay d-flex flex-column justify-content-end">
+                    <h5 className="card-title text-primary text-white">Card Title</h5>
+                    <p className="card-text text-white pb-2 pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.</p>
+                    <a href="#" className="text-white">Last update 2 mins ago</a>
                   </div>
                 </div>
               </div>
