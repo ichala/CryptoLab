@@ -83,16 +83,28 @@ function Home() {
           </div>
          
         </div>
-        <h4 class="mb-2 ">Top 12 Cryptocurrencies Worldwide</h4>
+      
         <div class="row">
-         <CryptoCard simplified />
- 
-          
-         
-         
-         
-        </div>
-       
+       <div className="col-12">
+
+     
+        <div class="card">
+              <div class="card-header mb-1">
+                <h3 class="card-title">Top 12 Cryptocurrencies worldwide</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+              </div>
+             
+              <div class="card-body m-1 p-0">
+              <CryptoCard simplified />
+              </div>
+           
+            </div></div>
+          </div>
         <h4 class="mb-2 ">News</h4>
         <div class="card card-success">
           <div class="card-body">

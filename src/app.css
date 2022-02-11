@@ -1,0 +1,12 @@
+.glassSucess {
+    /* background-color: red; */
+    background: linear-gradient(to right, rgba(4, 112, 40, 0.3), rgba(8, 104, 13, 0.7));
+    backdrop-filter: blur(8px);
+  
+}
+.glassFailure {
+    /* background-color: red; */
+    background: linear-gradient(to right, rgba(70, 7, 7, 0.3), rgba(109, 5, 5, 0.7));
+    backdrop-filter: blur(8px);
+  
+}
