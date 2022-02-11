@@ -5,10 +5,13 @@ function App() {
   return (
     <>
       <Sidebar />
-      <div class="wrapper">
+      <div className="wrapper"> 
+      <div className="content-wrapper">
         <Routes>
+
           <Route path="/" element={<Home/>} />
         </Routes>
+        </div>
       </div>
     </>
   );
