@@ -1,11 +1,16 @@
 import millify from 'millify'
 import React, { useState } from 'react'
-import {useGetCoinsQuery} from "../../ApiCalls/CoinsApi"
+import {useGetCoinsQuery,useGetCryptoHistoryQuery } from "../../ApiCalls/CoinsApi"
+import CardSmallChart from './CardSmallChart/CardSmallChart';
 function CryptoCard({simplified}) {
     const count = simplified ? 12:100;
     const {data :coinsList,isFetching} = useGetCoinsQuery(count);
     const [Coins, setCoins] = useState(coinsList?.data?.coins);
-    if (isFetching) return 'Loading...'
+    const { data: coinHistory,coinHistoryisFetching } = useGetCryptoHistoryQuery({ coinId:"Qwsogvtv82FCd", timeperiod:'3h' });
+    
+    if (isFetching || coinHistoryisFetching ) return 'Loading...'
+   
+  console.log({coinsList});
   return (
     <>
     <div className="row">
@@ -26,12 +31,15 @@ function CryptoCard({simplified}) {
      
      </div>
    
-     <div className="card-body" style={{display: "block"}}>
+     <div className="card-body bg-dark " style={{display: "block"}}>
      <div className="row d-flex justify-content-center">
-             <div className="col-12 center-block text-center">
-     <p>  Price :  <kbd> {Number(coin.price).toFixed(2)} $</kbd></p>
+             <div className="col-6 center-block ">
+     <p className='mt-3'>  Price :  <kbd> {Number(coin.price).toFixed(2)} $</kbd></p>
      <p>  Market Cap : <kbd>{millify(coin.marketCap)}</kbd></p>
-     <p>  Daily Change : <kbd className='glassSucess successCritical'><i className="fas fa-caret-up"></i> +{millify(coin.change)} %</kbd></p>
+     <p>  24h Change : <kbd className='glassSucess successCritical'><i className="fas fa-caret-up"></i> +{millify(coin.change)} %</kbd></p>
+     </div>
+     <div className="col-6 center-block text-center">
+     {!coinHistoryisFetching && <CardSmallChart bcolor="rgba(10, 219, 33,0.8)" color="rgba(3, 169, 21 ,0.2)" spark={coin.sparkline} coinHistory={coinHistory} currentPrice={millify(coin?.price)} coinName={coin?.name}/>}
      </div>
      </div>
      
@@ -52,16 +60,18 @@ function CryptoCard({simplified}) {
      
      </div>
    
-     <div className="card-body " style={{display: "block"}}>
+     <div className="card-body bg-dark " style={{display: "block"}}>
          <div className="row d-flex justify-content-center">
-             <div className="col-12 center-block text-center">
-             <p>  Price : <kbd> {Number(coin.price).toFixed(2)} $</kbd></p>
+             <div className="col-6 center-block ">
+             <p className='mt-3'>  Price : <kbd> {Number(coin.price).toFixed(2)} $</kbd></p>
      <p>  Market Cap : <kbd>{millify(coin.marketCap)}</kbd></p>
-     <p>  Daily Change : <kbd className='glassFailure failureCritical'><i className="fas fa-caret-down"></i>{millify(coin.change)} %</kbd></p>
+     <p>  24h Change : <kbd className='glassFailure failureCritical'><i className="fas fa-caret-down"></i>{millify(coin.change)} %</kbd></p>
        
       
              </div>
-             
+             <div className="col-6 center-block text-center">
+             {!coinHistoryisFetching && <CardSmallChart bcolor="rgba(232, 9, 36,0.8)" color="rgba(205, 2, 26 ,0.2)" spark={coin.sparkline} coinHistory={coinHistory} currentPrice={millify(coin?.price)} coinName={coin?.name}/>}
+     </div>
          </div>
    
      </div>

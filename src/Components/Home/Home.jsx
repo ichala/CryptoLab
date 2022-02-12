@@ -43,7 +43,7 @@ function Home() {
    
           <div className="col-12 col-sm-6 col-md-3">
             <div className="info-box mb-3">
-              <span className="info-box-icon bg-danger elevation-1"><i className="fas fa-exchange-alt"></i></span>
+              <span className="info-box-icon bg-warning elevation-1"><i className="fas fa-exchange-alt"></i></span>
 
               <div className="info-box-content">
                 <span className="info-box-text">Total Exchanges</span>
@@ -60,7 +60,7 @@ function Home() {
 
           <div className="col-12 col-sm-6 col-md-3">
             <div className="info-box mb-3">
-              <span className="info-box-icon bg-success elevation-1"><i className="fas fa-bullseye"></i></span>
+              <span className="info-box-icon bg-warning elevation-1"><i className="fas fa-bullseye"></i></span>
 
               <div className="info-box-content">
                 <span className="info-box-text">Total Market Cap</span>
@@ -73,7 +73,7 @@ function Home() {
          
           <div className="col-12 col-sm-6 col-md-3">
             <div className="info-box mb-3">
-              <span className="info-box-icon bg-info elevation-1"><i className="fas fa-clock"></i></span>
+              <span className="info-box-icon bg-warning elevation-1"><i className="fas fa-clock"></i></span>
 
               <div className="info-box-content"> 
                 <span className="info-box-text">Total 24h Volume</span>
