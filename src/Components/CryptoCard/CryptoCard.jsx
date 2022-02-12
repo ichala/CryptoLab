@@ -18,7 +18,7 @@ function CryptoCard({simplified}) {
       
        <h3 className="card-title">{coin.name}</h3>
 
-       <div className="card-tools">
+       <div className="card-tools successCritical">
        +{coin.change} %
          <button type="button" className="btn btn-tool" data-card-widget="collapse"><i className="fas fa-minus"></i>
          </button>
@@ -29,9 +29,9 @@ function CryptoCard({simplified}) {
      <div className="card-body" style={{display: "block"}}>
      <div className="row d-flex justify-content-center">
              <div className="col-12 center-block text-center">
-     <p>  Price :  <kbd>$ {millify(coin.price)} </kbd></p>
+     <p>  Price :  <kbd> {Number(coin.price).toFixed(2)} $</kbd></p>
      <p>  Market Cap : <kbd>{millify(coin.marketCap)}</kbd></p>
-     <p>  Daily Change : <kbd className='bg-success'><i className="fas fa-caret-up"></i> +{millify(coin.change)} %</kbd></p>
+     <p>  Daily Change : <kbd className='glassSucess successCritical'><i className="fas fa-caret-up"></i> +{millify(coin.change)} %</kbd></p>
      </div>
      </div>
      
@@ -44,7 +44,7 @@ function CryptoCard({simplified}) {
         
        <h3 className="card-title">{coin.name}</h3>
 
-       <div className="card-tools">
+       <div className="card-tools failureCritical">
        {coin.change} %
          <button type="button" className="btn btn-tool" data-card-widget="collapse"><i className="fas fa-minus"></i>
          </button>
@@ -52,12 +52,12 @@ function CryptoCard({simplified}) {
      
      </div>
    
-     <div className="card-body" style={{display: "block"}}>
+     <div className="card-body " style={{display: "block"}}>
          <div className="row d-flex justify-content-center">
              <div className="col-12 center-block text-center">
-             <p>  Price : <kbd>$ {millify(coin.price)} </kbd></p>
+             <p>  Price : <kbd> {Number(coin.price).toFixed(2)} $</kbd></p>
      <p>  Market Cap : <kbd>{millify(coin.marketCap)}</kbd></p>
-     <p>  Daily Change : <kbd className='bg-danger'><i className="fas fa-caret-down"></i>{millify(coin.change)} %</kbd></p>
+     <p>  Daily Change : <kbd className='glassFailure failureCritical'><i className="fas fa-caret-down"></i>{millify(coin.change)} %</kbd></p>
        
       
              </div>

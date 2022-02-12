@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Sidebar />
-      <div className="wrapper"> 
+      <div className="wrapper" > 
       <div className="content-wrapper">
         <Routes>
 

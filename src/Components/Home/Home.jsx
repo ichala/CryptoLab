@@ -2,9 +2,12 @@ import React from "react";
 import {useGetCoinsQuery} from "../../ApiCalls/CoinsApi"
 import millify from "millify";
 import CryptoCard from "../CryptoCard/CryptoCard";
+
+import NewsCard from "../NewsCard/NewsCard";
 function Home() {
     const {data , isFetching} = useGetCoinsQuery(12);
     const globalStats= data?.data?.stats;
+    
     if (isFetching) return 'Loading...'
   return (
     <div>
@@ -87,7 +90,7 @@ function Home() {
        <div className="col-12">
 
      
-        <div className="card">
+        <div className="card p-1" >
               <div className="card-header mb-1">
                 <h3 className="card-title">Top 12 Cryptocurrencies worldwide</h3>
 
@@ -101,45 +104,44 @@ function Home() {
               <div className="card-body m-1 p-0">
               <CryptoCard simplified />
               </div>
-           
+              <div class="card-footer">
+                  <div class="text-right">
+                    
+                    <a href="#" target="_blank" class="btn btn-sm btn-warning">
+                    <i class="fas fa-search-dollar"></i> View More
+                    </a>
+                  </div>
+                </div>
             </div></div>
           </div>
-        <h4 className="mb-2 ">News</h4>
-        <div className="card card-success">
+       
+          <div className="card">
+              <div className="card-header mb-1">
+                <h3 className="card-title">Cryptocurrencies News</h3>
+
+                <div className="card-tools">
+              
+                    
+                   
+          
+                  <button type="button" className="btn btn-tool" data-card-widget="collapse">
+                    <i className="fas fa-minus"></i>
+                  </button>
+                </div>
+              </div>
           <div className="card-body">
             <div className="row">
-              <div className="col-md-12 col-lg-6 col-xl-4">
-                <div className="card mb-2 bg-gradient-dark">
-                  <img className="card-img-top" src="../dist/img/photo1.png" alt="Dist Photo 1" />
-                  <div className="card-img-overlay d-flex flex-column justify-content-end">
-                    <h5 className="card-title text-primary text-white">Card Title</h5>
-                    <p className="card-text text-white pb-2 pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.</p>
-                    <a href="#" className="text-white">Last update 2 mins ago</a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-12 col-lg-6 col-xl-4">
-                <div className="card mb-2 bg-gradient-dark">
-                  <img className="card-img-top" src="../dist/img/photo1.png" alt="Dist Photo 1" />
-                  <div className="card-img-overlay d-flex flex-column justify-content-end">
-                    <h5 className="card-title text-primary text-white">Card Title</h5>
-                    <p className="card-text text-white pb-2 pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.</p>
-                    <a href="#" className="text-white">Last update 2 mins ago</a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-12 col-lg-6 col-xl-4">
-                <div className="card mb-2 bg-gradient-dark">
-                  <img className="card-img-top" src="../dist/img/photo1.png" alt="Dist Photo 1" />
-                  <div className="card-img-overlay d-flex flex-column justify-content-end">
-                    <h5 className="card-title text-primary text-white">Card Title</h5>
-                    <p className="card-text text-white pb-2 pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.</p>
-                    <a href="#" className="text-white">Last update 2 mins ago</a>
-                  </div>
-                </div>
-              </div>
+           <NewsCard simplified/>
             </div>
           </div>
+          <div class="card-footer">
+                  <div class="text-right">
+                    
+                    <a href="#" target="_blank" class="btn btn-sm btn-warning">
+                    <i class="fas fa-search"></i> View More
+                    </a>
+                  </div>
+                </div>
         </div>
        </div>
        

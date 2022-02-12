@@ -1,12 +1,18 @@
 .glassSucess {
     /* background-color: red; */
-    background: linear-gradient(to right, rgba(4, 112, 40, 0.3), rgba(8, 104, 13, 0.7));
-    backdrop-filter: blur(8px);
-  
+    background: linear-gradient(0deg,#04551c,#0e3502);
+    border-color: #1ce64f;
 }
 .glassFailure {
     /* background-color: red; */
-    background: linear-gradient(to right, rgba(70, 7, 7, 0.3), rgba(109, 5, 5, 0.7));
-    backdrop-filter: blur(8px);
+    background: linear-gradient(0deg,#2e020c,#170106);
+    border-color: #f52626;
   
+  
+}
+.failureCritical {
+    color: #e8093a;
+}
+.successCritical {
+    color: #1ce64f;
 }
