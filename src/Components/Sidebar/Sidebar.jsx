@@ -17,8 +17,8 @@ function Sidebar() {
       </nav>
       <aside className="main-sidebar sidebar-dark-warning elevation-4">
         <a href="../../index3.html" className="brand-link">
-        🔬
-          <span className="brand-text font-weight-light">CryptoLab</span>
+        <img src="./logo.gif" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" ></img>
+          <h4><span className="brand-text font-weight-light">Crypto<sup className="text-muted"><span class="badge bg-warning"><b>Lab</b></span></sup></span></h4>
         </a>
 
         <div className="sidebar" style={{ marginTop: "0px" }}>

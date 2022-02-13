@@ -13,14 +13,8 @@ function Home() {
     <div>
       {" "}
       <section className="content-header">
-        <div className="container-fluid">
-          <div className="row mb-2">
-            <div className="col-sm-6">
-              <h1>Home Page</h1>
-            </div>
-           
-          </div>
-        </div>
+      <h2 class="text-center display-4"><img className="mb-2" height={70} width={70} src="./logo.gif"/>Crypto<sup className="text-muted"><span class="badge bg-warning">Lab </span></sup> </h2>
+   
       </section>
       <section className="content">
       <div className="container-fluid">
@@ -104,11 +98,11 @@ function Home() {
               <div className="card-body m-1 p-0">
               <CryptoCard simplified />
               </div>
-              <div class="card-footer">
-                  <div class="text-right">
+              <div className="card-footer">
+                  <div className="text-right">
                     
-                    <a href="#" target="_blank" class="btn btn-sm btn-warning">
-                    <i class="fas fa-search-dollar"></i> View More
+                    <a href="#" target="_blank" className="btn btn-sm btn-warning">
+                    <i className="fas fa-search-dollar"></i> View More
                     </a>
                   </div>
                 </div>
@@ -134,11 +128,11 @@ function Home() {
            <NewsCard simplified/>
             </div>
           </div>
-          <div class="card-footer">
-                  <div class="text-right">
+          <div className="card-footer">
+                  <div className="text-right">
                     
-                    <a href="#" target="_blank" class="btn btn-sm btn-warning">
-                    <i class="fas fa-search"></i> View More
+                    <a href="#" target="_blank" className="btn btn-sm btn-warning">
+                    <i className="fas fa-search"></i> View More
                     </a>
                   </div>
                 </div>
