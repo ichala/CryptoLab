@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
   return (
@@ -17,7 +18,7 @@ function Sidebar() {
       </nav>
       <aside className="main-sidebar sidebar-dark-warning elevation-4">
         <a href="../../index3.html" className="brand-link">
-        <img src="./logo.gif" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" ></img>
+        <img src="/logo.gif" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" ></img>
           <h4><span className="brand-text font-weight-light">Crypto<sup className="text-muted"><span class="badge bg-warning"><b>Lab</b></span></sup></span></h4>
         </a>
 
@@ -30,16 +31,16 @@ function Sidebar() {
               data-accordion="false"
             >
               <li className="nav-item">
-                <a href="/docs/3.1//layout.html" className="nav-link">
+                <Link to="/" className="nav-link">
                   <i className="nav-icon fas fa-home"></i>
                   <p>Home</p>
-                </a>
+               </Link>
               </li>
               <li className="nav-item">
-                <a href="/docs/3.1//layout.html" className="nav-link">
-                  <i className="nav-icon fas fa-home"></i>
+                <Link to="/Crypto/All" className="nav-link">
+                <i class="nav-icon fab fa-bitcoin"></i>
                   <p>Cryptocurrencies</p>
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a href="/docs/3.1//layout.html" className="nav-link">

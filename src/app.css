@@ -17,6 +17,16 @@
     color: #1ce64f;
 }
 body {
-    
+    font-size: 0.85rem;
     font-family: 'Montserrat', sans-serif !important;
+  }
+  [class*=sidebar-dark-] .nav-sidebar>.nav-item.menu-open>.nav-link, [class*=sidebar-dark-] .nav-sidebar>.nav-item:hover>.nav-link, [class*=sidebar-dark-] .nav-sidebar>.nav-item>.nav-link:focus {
+    background-color: rgba(243,156,18,1) !important;
+    color: black;
+}
+canvas{
+
+    width:100% !important;
+    height:100%px !important;
+  
   }

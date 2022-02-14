@@ -35,8 +35,9 @@ const CardSmallChart = ({ bcolor, color, spark }) => {
 
   const options = {
     scaleShowLabels: false,
-    maintainAspectRatio: false,
-    responsive: true,
+    maintainAspectRatio: true,
+    responsive: false,
+    
     legend: {
       display: "",
     },
@@ -52,18 +53,24 @@ const CardSmallChart = ({ bcolor, color, spark }) => {
         },
         ticks: {
           autoSkip: true,
-          maxTicksLimit: 13,
+          maxTicksLimit: 4,
           display: false,
         },
         gridLines: {
           display: false,
-          color: "#e6e6e6",
+          
           drawBorder: false,
         },
       },
       y: {
         stacked: true,
+        ticks: {
+          autoSkip: true,
+          maxTicksLimit: 4,
+          display: false,
+        },
       },
+      
     },
   };
   return (

@@ -1,11 +1,12 @@
 import millify from "millify";
 import React, { useState } from "react";
+
 import {
   useGetCoinsQuery,
   useGetCryptoHistoryQuery,
 } from "../../ApiCalls/CoinsApi";
 import CardSmallChart from "./CardSmallChart/CardSmallChart";
-function CryptoCard({ simplified }) {
+function CryptoCard({ simplified ,filter}) {
   const count = simplified ? 12 : 100;
   const { data: coinsList, isFetching } = useGetCoinsQuery(count);
   const [Coins, setCoins] = useState(coinsList?.data?.coins);
@@ -14,12 +15,45 @@ function CryptoCard({ simplified }) {
   );
 
   if (isFetching || coinHistoryisFetching) return "Loading...";
+  let myData = Coins;
+    switch (filter) {
+      case "price":
+        myData = [].concat(Coins)
+        .sort((a, b) => Number(a.price) > Number(b.price) ? -1 : 1)
+        break;
+        case "name":
+           myData = [].concat(Coins)
+          .sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1)
+        break;
+        case "change":
+          myData = [].concat(Coins)
+          .sort((a, b) => a.change > b.change ? -1 : 1)
+        break;
+        case "change-":
+          myData = [].concat(Coins)
+          .sort((a, b) => a.change > b.change ? 1 : -1)
+        break;
+        case "marketcap":
+          myData = [].concat(Coins)
+          .sort((a, b) => Number(a.marketCap) > Number(b.marketCap) ? -1 : 1)
+        break;
+        case "marketcap-":
+          myData = [].concat(Coins)
+          .sort((a, b) => Number(a.marketCap) > Number(b.marketCap) ? 1 : -1)
+        break;
+      default:
+        myData = Coins;
+        break;
+    }
+console.log({filter});
+console.log({myData});
 
-  console.log({ coinsList });
+  
+
   return (
     <>
       <div className="row">
-        {Coins?.map((coin) => (
+        {myData?.map((coin) => (
           <div key={coin.name} className="col-md-3">
             {coin.change > 0 ? (
               <div className="card card-success ">
@@ -67,6 +101,7 @@ function CryptoCard({ simplified }) {
                           {millify(coin.change)} %
                         </kbd>
                       </p>
+                      <button className="btn btn-xs btn-warning"><i class="fas fa-star"></i> Add Favorite</button> 
                     </div>
                     <div className="col-6 center-block text-center">
                       {!coinHistoryisFetching && (
@@ -129,6 +164,7 @@ function CryptoCard({ simplified }) {
                           {millify(coin.change)} %
                         </kbd>
                       </p>
+                      {/* <button className="btn btn-xs btn-warning"><i class="fas fa-star"></i> Add Favorite</button>  */}
                     </div>
                     <div className="col-6 center-block text-center">
                       {!coinHistoryisFetching && (

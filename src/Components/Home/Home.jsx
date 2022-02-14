@@ -2,7 +2,7 @@ import React from "react";
 import {useGetCoinsQuery} from "../../ApiCalls/CoinsApi"
 import millify from "millify";
 import CryptoCard from "../CryptoCard/CryptoCard";
-
+import { Link } from "react-router-dom";
 import NewsCard from "../NewsCard/NewsCard";
 function Home() {
     const {data , isFetching} = useGetCoinsQuery(12);
@@ -80,7 +80,7 @@ function Home() {
          
         </div>
       
-        <div className="row">
+        <div className="row"> 
        <div className="col-12">
 
      
@@ -100,10 +100,10 @@ function Home() {
               </div>
               <div className="card-footer">
                   <div className="text-right">
-                    
-                    <a href="#" target="_blank" className="btn btn-sm btn-warning">
-                    <i className="fas fa-search-dollar"></i> View More
-                    </a>
+                  <Link to="/Crypto/All" className="btn btn-sm btn-warning">
+                  <i className="fas fa-search-dollar"></i> View More
+                    </Link>
+                   
                   </div>
                 </div>
             </div></div>
@@ -131,9 +131,9 @@ function Home() {
           <div className="card-footer">
                   <div className="text-right">
                     
-                    <a href="#" target="_blank" className="btn btn-sm btn-warning">
+                  <Link to="/Crypto/All" className="btn btn-sm btn-warning">
                     <i className="fas fa-search"></i> View More
-                    </a>
+                    </Link>
                   </div>
                 </div>
         </div>
