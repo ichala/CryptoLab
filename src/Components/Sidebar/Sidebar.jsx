@@ -35,6 +35,18 @@ function Sidebar() {
                   <p>Home</p>
                 </a>
               </li>
+              <li className="nav-item">
+                <a href="/docs/3.1//layout.html" className="nav-link">
+                  <i className="nav-icon fas fa-home"></i>
+                  <p>Cryptocurrencies</p>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a href="/docs/3.1//layout.html" className="nav-link">
+                  <i className="nav-icon fas fa-home"></i>
+                  <p>News</p>
+                </a>
+              </li>
              
             </ul>
           </nav>
