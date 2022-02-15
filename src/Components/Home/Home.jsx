@@ -13,7 +13,7 @@ function Home() {
     <div>
       {" "}
       <section className="content-header">
-      <h2 class="text-center display-4"><img className="mb-2" height={70} width={70} src="./logo.gif"/>Crypto<sup className="text-muted"><span class="badge bg-warning">Lab </span></sup> </h2>
+      <h2 className="text-center display-4"><img className="mb-2" height={70} width={70} src="./logo.gif"/>Crypto<sup className="text-muted"><span className="badge bg-warning">Lab </span></sup> </h2>
    
       </section>
       <section className="content">

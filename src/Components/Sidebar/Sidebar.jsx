@@ -18,8 +18,8 @@ function Sidebar() {
       </nav>
       <aside className="main-sidebar sidebar-dark-warning elevation-4">
         <a href="../../index3.html" className="brand-link">
-        <img src="/logo.gif" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" ></img>
-          <h4><span className="brand-text font-weight-light">Crypto<sup className="text-muted"><span class="badge bg-warning"><b>Lab</b></span></sup></span></h4>
+        <img src="/logo.gif" alt="AdminLTE Logo" className="brand-image img-circle elevation-3" ></img>
+          <h4><span className="brand-text font-weight-light">Crypto<sup className="text-muted"><span className="badge bg-warning"><b>Lab</b></span></sup></span></h4>
         </a>
 
         <div className="sidebar" style={{ marginTop: "0px" }}>
@@ -38,7 +38,7 @@ function Sidebar() {
               </li>
               <li className="nav-item">
                 <Link to="/Crypto/All" className="nav-link">
-                <i class="nav-icon fab fa-bitcoin"></i>
+                <i className="nav-icon fab fa-bitcoin"></i>
                   <p>Cryptocurrencies</p>
                 </Link>
               </li>

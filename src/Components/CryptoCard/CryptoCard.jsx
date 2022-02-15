@@ -1,5 +1,6 @@
 import millify from "millify";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import {
   useGetCoinsQuery,
@@ -42,8 +43,7 @@ function CryptoCard({ simplified ,filter}) {
         myData = Coins;
         break;
     }
-console.log({filter});
-console.log({myData});
+
 
   
 
@@ -55,6 +55,7 @@ console.log({myData});
             {coin.change > 0 ? (
               <div className="card card-success ">
                 <div className="card-header glassSucess">
+                  <Link to={"/Lab/"+coin.name+"/"+coin.uuid+"/"}>
                   <img
                     src={coin.iconUrl}
                     className="img-circle rounded-circle elevation-4 m-1"
@@ -63,7 +64,7 @@ console.log({myData});
                   />
 
                   <h3 className="card-title">{coin.name}</h3>
-
+</Link>
                   <div className="card-tools successCritical">
                     +{coin.change} %
                     <button
@@ -98,10 +99,10 @@ console.log({myData});
                           {millify(coin.change)} %
                         </kbd>
                       </p>
-                      <button className="btn btn-xs btn-warning"><i class="fas fa-star"></i> Add Favorite</button> 
+                      <button className="btn btn-xs btn-warning"><i className="fas fa-star"></i> Add Favorite</button> 
                     </div>
                     <div className="col-6 center-block text-center">
-                      
+                    <Link to={"/Lab/"+coin.name+"/"+coin.uuid+"/"}>
                         <CardSmallChart
                           bcolor="rgba(10, 219, 33,0.8)"
                           color="rgba(3, 169, 21 ,0.2)"
@@ -110,7 +111,7 @@ console.log({myData});
                           currentPrice={millify(coin?.price)}
                           coinName={coin?.name}
                         />
-                    
+                    </Link>
                     </div>
                   </div>
                 </div>
@@ -118,6 +119,7 @@ console.log({myData});
             ) : (
               <div className="card card-danger">
                 <div className="card-header glassFailure">
+                <Link to={"/Lab/"+coin.name+"/"+coin.uuid+"/"}>
                   <img
                     src={coin.iconUrl}
                     className="img-circle rounded-circle elevation-4 m-1"
@@ -126,7 +128,7 @@ console.log({myData});
                   />
 
                   <h3 className="card-title">{coin.name}</h3>
-
+</Link>
                   <div className="card-tools failureCritical">
                     {coin.change} %
                     <button
@@ -161,10 +163,10 @@ console.log({myData});
                           {millify(coin.change)} %
                         </kbd>
                       </p>
-                      {/* <button className="btn btn-xs btn-warning"><i class="fas fa-star"></i> Add Favorite</button>  */}
+                      {/* <button className="btn btn-xs btn-warning"><i className="fas fa-star"></i> Add Favorite</button>  */}
                     </div>
                     <div className="col-6 center-block text-center">
-                  
+                    <Link to={"/Lab/"+coin.name+"/"+coin.uuid+"/"}>
                         <CardSmallChart
                           bcolor="rgba(232, 9, 36,0.8)"
                           color="rgba(205, 2, 26 ,0.2)"
@@ -173,7 +175,7 @@ console.log({myData});
                           currentPrice={millify(coin?.price)}
                           coinName={coin?.name}
                         />
-                 
+                 </Link>
                     </div>
                   </div>
                 </div>
