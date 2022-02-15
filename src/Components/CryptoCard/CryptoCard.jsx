@@ -3,18 +3,15 @@ import React, { useState } from "react";
 
 import {
   useGetCoinsQuery,
-  useGetCryptoHistoryQuery,
+  
 } from "../../ApiCalls/CoinsApi";
 import CardSmallChart from "./CardSmallChart/CardSmallChart";
 function CryptoCard({ simplified ,filter}) {
   const count = simplified ? 12 : 100;
   const { data: coinsList, isFetching } = useGetCoinsQuery(count);
   const [Coins, setCoins] = useState(coinsList?.data?.coins);
-  const { data: coinHistory, coinHistoryisFetching } = useGetCryptoHistoryQuery(
-    { coinId: "Qwsogvtv82FCd", timeperiod: "3h" }
-  );
 
-  if (isFetching || coinHistoryisFetching) return "Loading...";
+  if (isFetching) return "Loading...";
   let myData = Coins;
     switch (filter) {
       case "price":
@@ -104,16 +101,16 @@ console.log({myData});
                       <button className="btn btn-xs btn-warning"><i class="fas fa-star"></i> Add Favorite</button> 
                     </div>
                     <div className="col-6 center-block text-center">
-                      {!coinHistoryisFetching && (
+                      
                         <CardSmallChart
                           bcolor="rgba(10, 219, 33,0.8)"
                           color="rgba(3, 169, 21 ,0.2)"
                           spark={coin.sparkline}
-                          coinHistory={coinHistory}
+                         
                           currentPrice={millify(coin?.price)}
                           coinName={coin?.name}
                         />
-                      )}
+                    
                     </div>
                   </div>
                 </div>
@@ -167,16 +164,16 @@ console.log({myData});
                       {/* <button className="btn btn-xs btn-warning"><i class="fas fa-star"></i> Add Favorite</button>  */}
                     </div>
                     <div className="col-6 center-block text-center">
-                      {!coinHistoryisFetching && (
+                  
                         <CardSmallChart
                           bcolor="rgba(232, 9, 36,0.8)"
                           color="rgba(205, 2, 26 ,0.2)"
                           spark={coin.sparkline}
-                          coinHistory={coinHistory}
+                         
                           currentPrice={millify(coin?.price)}
                           coinName={coin?.name}
                         />
-                      )}
+                 
                     </div>
                   </div>
                 </div>
