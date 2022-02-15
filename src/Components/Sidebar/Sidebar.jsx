@@ -14,13 +14,33 @@ function Sidebar() {
          
         </ul>
 
-        <ul className="navbar-nav ml-auto"></ul>
+        <ul class="navbar-nav ml-auto">
+
+      
+<li class="nav-item">
+   <a class="nav-link"><img className="ml-1" height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" alt="Javascript" />
+   <img height="20"className="ml-1"  src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png"  alt="REACT"/>
+   <img height="20" className="ml-1" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/redux/redux.png"  alt="Redux" />
+   <img height="20" className="ml-1" src="https://adminlte.io/themes/v3/dist/img/AdminLTELogo.png"  alt="AdminLte" />
+   <img height="20"className="ml-1"  src="https://rapidapi.com/static-assets/default/favicon.ico" alt="RAPID API" />
+   <a type="button" href="https://github.com/ichala/CryptoLab" target='_blank' class="btn  btn-warning btn-xs ml-1"><i class="fab fa-github"></i> Source Code</a>
+   </a>
+</li>
+
+
+<li class="nav-item">
+<a class="nav-link" data-widget="fullscreen" href="#" role="button">
+<i class="fas fa-expand-arrows-alt"></i>
+</a>
+</li>
+
+</ul>
       </nav>
       <aside className="main-sidebar sidebar-dark-warning elevation-4">
-        <a href="../../index3.html" className="brand-link">
+        <Link to="/" className="brand-link">
         <img src="/logo.gif" alt="AdminLTE Logo" className="brand-image img-circle elevation-3" ></img>
           <h4><span className="brand-text font-weight-light">Crypto<sup className="text-muted"><span className="badge bg-warning"><b>Lab</b></span></sup></span></h4>
-        </a>
+        </Link>
 
         <div className="sidebar" style={{ marginTop: "0px" }}>
           <nav className="mt-2">

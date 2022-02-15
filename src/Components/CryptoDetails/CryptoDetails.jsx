@@ -1,6 +1,7 @@
 import millify from "millify";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import HTMLReactParser from "html-react-parser";
 import {
   useGetCryptoHistoryQuery,
   useGetCryptoDetailsQuery,
@@ -11,13 +12,12 @@ function CryptoDetails() {
   const { id } = useParams();
   const { name } = useParams();
   const [Sort, setSort] = useState("24h");
-  const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
-  
- 
-  const { data: coinDetails,isFetching } = useGetCryptoDetailsQuery(id);
+  const time = ["3h", "24h", "7d", "30d", "3m", "1y", "3y", "5y"];
+
+  const { data: coinDetails, isFetching } = useGetCryptoDetailsQuery(id);
   if (isFetching) return "Loading...";
- 
-  // console.log({ coinDetails });
+
+  console.log({ coinDetails });
   return (
     <>
       <section className="content-header">
@@ -42,9 +42,11 @@ function CryptoDetails() {
             <div className="col-md-12">
               <div className="card">
                 <div className="card-header">
-                  <h5 className="card-title"> {coinDetails?.data?.coin?.name} Chart Report</h5>
+                  <h5 className="card-title">
+                    {" "}
+                    {coinDetails?.data?.coin?.name} Chart Report
+                  </h5>
                   <div className="card-tools">
-              
                     <form className="form-inline">
                       <div className="form-group ">
                         <select
@@ -54,21 +56,19 @@ function CryptoDetails() {
                             setSort(e.target.value);
                           }}
                         >
-                          {time.map(t=>(
-                             <option key={t} >{t}</option>
+                          {time.map((t) => (
+                            <option key={t}>{t}</option>
                           ))}
-                       
                         </select>
                       </div>
                       <button
-                      type="button"
-                      className="btn btn-tool"
-                      data-card-widget="collapse"
-                    >
-                      <i className="fas fa-minus"></i>
-                    </button>
+                        type="button"
+                        className="btn btn-tool"
+                        data-card-widget="collapse"
+                      >
+                        <i className="fas fa-minus"></i>
+                      </button>
                     </form>
-                    
                   </div>
                 </div>
 
@@ -77,9 +77,8 @@ function CryptoDetails() {
                     <div className="col-md-12">
                       <div style={{ maxHeight: "300px" }}>
                         <BigChart
-                        id={id}
-                        sort={Sort}
-                          
+                          id={id}
+                          sort={Sort}
                           coinDetails={coinDetails}
                         />
                       </div>
@@ -136,6 +135,45 @@ function CryptoDetails() {
                         </span>
                         <h5>{Number(coinDetails?.data?.coin?.marketCap)}</h5>
                         <span className="description-text">Market Cap</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row mt-2">
+                    <div className="col-6 text-center">
+                      <div className="card bg-dark p-1">
+                        <h1>About {name}</h1>
+                        {HTMLReactParser(coinDetails.data.coin?.description)}
+                      </div>
+                    </div>
+                    <div className="col-6 text-center">
+                      <div className="card bg-dark p-1">
+                        <h1>Useful Links </h1>
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                             
+                             
+                              <th>Name</th>
+                              <th>Link</th>
+                          
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {coinDetails.data.coin?.links.map((link)=>(
+ <tr>
+ 
+ 
+ <td>{link.name} ({link.type})</td>
+
+ <td>
+   <a href={link.url} className="btn btn-sm btn-warning p-1"><b>visit</b></a>
+ </td>
+</tr>
+                            ))}
+                           
+                        
+                          </tbody>
+                        </table>
                       </div>
                     </div>
                   </div>

@@ -77,15 +77,15 @@ function BigChart({sort,id, coinDetails }) {
           ticks: {
             autoSkip: true,
             maxTicksLimit: 60,
-            display: false,
+            
           },
         },
         x: {
          
           ticks: {
             autoSkip: true,
-            maxTicksLimit: 60,
-            display: false,
+            maxTicksLimit: 15,
+           
           },
         },
       };
