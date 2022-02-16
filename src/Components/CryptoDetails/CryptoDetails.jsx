@@ -16,6 +16,7 @@ function CryptoDetails() {
   const time = ["3h", "24h", "7d", "30d", "3m", "1y", "3y", "5y"];
 
   const { data: coinDetails, isFetching } = useGetCryptoDetailsQuery(id);
+  console.log({coinDetails});
   if (isFetching) return <Loading />;
 
   return (
@@ -138,46 +139,73 @@ function CryptoDetails() {
                       </div>
                     </div>
                   </div>
-                  <div className="row mt-2">
-                    <div className="col-6 text-center">
-                      <div className="card bg-dark p-1">
-                        <h1>About {name}</h1>
-                        {HTMLReactParser(coinDetails.data.coin?.description)}
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class="card-title">Projects Detail</h3>
+                      <div class="card-tools">
+                        <button
+                          type="button"
+                          class="btn btn-tool"
+                          data-card-widget="collapse"
+                          title="Collapse"
+                        >
+                          <i class="fas fa-minus"></i>
+                        </button>
+                       
                       </div>
                     </div>
-                    <div className="col-6 text-center">
-                      <div className="card bg-dark p-1">
-                        <h1>Useful Links </h1>
-                        <table class="table table-striped">
-                          <thead>
-                            <tr>
-                              <th>Name</th>
-                              <th>Link</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {coinDetails.data.coin?.links.map((link) => (
-                              <tr>
-                                <td>
-                                  {link.name} ({link.type})
-                                </td>
-
-                                <td>
-                                  <a
-                                    href={link.url}
-                                    target="_blank"
-                                    className="btn btn-sm btn-warning p-1"
-                                  >
-                                    <b>visit</b>
-                                  </a>
-                                </td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
+                    <div class="card-body" style={{display: "block"}}>
+                      <div class="row">
+                        <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
+                         
+                          <div class="row">
+                            <div class="col-12">
+                              <h4>Recent Activity</h4>
+                              {HTMLReactParser(coinDetails.data.coin?.description)}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
+                          <h3 class="text-warning">
+                          <img
+            className="mb-2"
+            height={30}
+            width={30}
+            src={coinDetails?.data?.coin?.iconUrl}
+          />{coinDetails.data.coin?.name}
+                          </h3>
+                         
+                          <br />
+                          <div class="text-muted">
+                            <p class="text-sm">
+                              official Website
+                              <a class="d-block" target="_blank" href={coinDetails.data.coin?.websiteUrl}>{coinDetails.data.coin?.websiteUrl}</a>
+                            </p>
+                            <p class="text-sm">
+                              Rank & Symboles
+                              <h3 class="d-block">#{coinDetails.data.coin?.rank} - {coinDetails.data.coin?.symbol}</h3>
+                            </p>
+                          </div>
+                          <h5 class="mt-5 text-muted">Useful Links</h5>
+                          <ul class="list-unstyled">
+                          {coinDetails.data.coin?.links.map((link) => (
+ <li>
+ <a href={link.url}class="btn-link text-secondary">
+ <i class="fas fa-link mr-1"></i>
+   {link.name} ({link.type})
+ </a>
+</li>
+                          ))}
+                           
+                         
+                          
+                          </ul>
+                          
+                        </div>
                       </div>
                     </div>
                   </div>
+                 
                 </div>
               </div>
             </div>

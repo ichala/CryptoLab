@@ -112,62 +112,70 @@ function Sidebar() {
               role="menu"
               data-accordion="false"
             >
-              <li className="nav-item">
+              <li className="nav-item text-md">
                 <Link to="/" className="nav-link">
                   <i className="nav-icon fas fa-home"></i>
                   <p>Home</p>
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item text-md">
                 <Link to="/Crypto/All" className="nav-link">
                   <i className="nav-icon fab fa-bitcoin"></i>
                   <p>Cryptocurrencies</p>
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item text-md">
                 <a href="/docs/3.1//layout.html" className="nav-link">
-                  <i className="nav-icon fas fa-home"></i>
+                <i className="nav-icon fas fa-newspaper"></i>
                   <p>News</p>
                 </a>
               </li>
-              <li class="nav-header">Favorites</li>
+              {favo && <li class="nav-header"><i class="nav-icon fas fa-star text-warning"></i> Favorites</li>}
               {myData?.map((coin) =>
                 coin.change < 0 ? (
-                  <li class="nav-header text-center">
+                  <Link to={"/Lab/"+coin.name+"/"+coin.uuid+"/"}>
+                  <li class="nav-header ">
                     {" "}
-                    <span class="badge  p-2 glassFailureBG text-danger">
-                      {coin.symbol}-USD {Number(coin.price).toFixed(3)}{" "}
-                      {coin.change}%
-                    </span>
+                   <span >
+                      {coin.symbol}-USD  <span className="text-success">{coin.change}%</span>
+                     
+                   </span>
                   </li>
+                  </Link>
                 ) : (
-                  <li class="nav-header text-center">
+                  <Link to={"/Lab/"+coin.name+"/"+coin.uuid+"/"}>
+                  <li class="nav-header ">
                     {" "}
-                    <span class="badge  p-2 glassSucessBG text-success">
-                      {coin.symbol}-USD {Number(coin.price).toFixed(3)} +
-                      {coin.change}%
-                    </span>
+                    <span >
+                      {coin.symbol}-USD  <span className="text-danger">{coin.change}%</span>
+                     
+                   </span>
                   </li>
+                  </Link>
                 )
               )}
-              <li class="nav-header">Prices</li>
+              <li class="nav-header"><i class="nav-icon fas fa-chart-line text-warning"></i> Prices</li>
               {coinsList?.data.coins.map((coin) =>
                 coin.change < 0 ? (
-                  <li class="nav-header text-center">
+                  <Link to={"/Lab/"+coin.name+"/"+coin.uuid+"/"}>
+                  <li class="nav-header ">
                     {" "}
-                    <span class="badge  p-2 glassFailureBG text-danger">
-                      {coin.symbol}-USD {Number(coin.price).toFixed(3)}{" "}
-                      {coin.change}%
-                    </span>
+                    <span >
+                      {coin.symbol}-USD  <span className="text-danger">{coin.change}%</span>
+                     
+                   </span>
                   </li>
+                  </Link>
                 ) : (
-                  <li class="nav-header text-center">
+                  <Link to={"/Lab/"+coin.name+"/"+coin.uuid+"/"}>
+                  <li class="nav-header ">
                     {" "}
-                    <span class="badge  p-2 glassSucessBG text-success">
-                      {coin.symbol}-USD {Number(coin.price).toFixed(3)} +
-                      {coin.change}%
-                    </span>
+                    <span >
+                      {coin.symbol}-USD  <span className="text-success">{coin.change}%</span>
+                     
+                   </span>
                   </li>
+                  </Link>
                 )
               )}
             </ul>
