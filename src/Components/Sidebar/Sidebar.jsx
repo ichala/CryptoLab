@@ -37,9 +37,10 @@ function Sidebar() {
 </ul>
       </nav>
       <aside className="main-sidebar sidebar-dark-warning elevation-4">
-        <Link to="/" className="brand-link">
+        <Link to="/" className="brand-link" style={{borderBottom:0}}>
         <img src="/logo.gif" alt="AdminLTE Logo" className="brand-image img-circle elevation-3" ></img>
           <h4><span className="brand-text font-weight-light">Crypto<sup className="text-muted"><span className="badge bg-warning"><b>Lab</b></span></sup></span></h4>
+          <hr className="bg-warning"></hr>
         </Link>
 
         <div className="sidebar" style={{ marginTop: "0px" }}>

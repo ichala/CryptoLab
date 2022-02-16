@@ -3,13 +3,27 @@
     background: linear-gradient(0deg,#04551c,#0e3502);
     border-color: #1ce64f;
 }
+.glassSucessBG {
+    /* background-color: red; */
+    background: linear-gradient(0deg,#04551c00,#0e3502);
+    border-color: #1ce64f;
+}
+.glassFailureBG {
+    /* background-color: red; */
+    background: linear-gradient(0deg,#2e020c2c,#170106);
+    border-color: #f52626;
+}
+.glassWarneBG {
+    /* background-color: red; */
+    background: linear-gradient(0deg,#000000,#fda90ca1);
+    border-color: #f52626;
+}
 .glassFailure {
     /* background-color: red; */
     background: linear-gradient(0deg,#2e020c,#170106);
     border-color: #f52626;
-  
-  
 }
+
 .failureCritical {
     color: #e8093a;
 }
@@ -23,6 +37,7 @@ body {
   [class*=sidebar-dark-] .nav-sidebar>.nav-item.menu-open>.nav-link, [class*=sidebar-dark-] .nav-sidebar>.nav-item:hover>.nav-link, [class*=sidebar-dark-] .nav-sidebar>.nav-item>.nav-link:focus {
     background-color: rgba(243,156,18,1) !important;
     color: black;
+    
 }
 canvas{
 
@@ -37,4 +52,8 @@ canvas{
     transform: translate(-50%,-50%);
 	max-width: 100px;
     max-height: 100px;	
+  }
+  .dark-mode,.wrapper,.content-wrapper ,.card,.navbar-dark,.sidebar,.brand-link {
+      background-color: black !important;
+      border-bottom: none;
   }

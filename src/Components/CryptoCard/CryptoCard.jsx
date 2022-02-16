@@ -1,3 +1,4 @@
+
 import millify from "millify";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
@@ -13,7 +14,7 @@ function CryptoCard({ simplified ,filter}) {
   const { data: coinsList, isFetching } = useGetCoinsQuery(count);
   const [Coins, setCoins] = useState(coinsList?.data?.coins);
 
-  if (isFetching) return <Loading/>;
+
   let myData = Coins;
     switch (filter) {
       case "price":
@@ -44,14 +45,59 @@ function CryptoCard({ simplified ,filter}) {
         myData = Coins;
         break;
     }
-
-
-  
-
+    let favo = localStorage.getItem("fav_cryptoLab");
+   if(simplified){myData= myData.filter(e =>{
+        if (favo) {
+        let fav_list = JSON.parse(favo);
+          if (fav_list.length>0) {
+           return !fav_list.includes(e.uuid)
+          }else{
+            return true
+          }
+        } else {
+          return true
+        }
+      });}
+function fav(id) {
+  let fav=JSON.parse(favo);
+  let old = false;
+  if (!fav) {
+    return old
+  } else {
+  if(fav.length<1){
+return old
+  } else{
+   
+    fav?.forEach(coin => {
+      if (coin==id) {
+        old=true
+      }
+    });
+  }}
+  return old
+}
+function AddFav(e,id) {
+ 
+  e.preventDefault();
+  let fav=localStorage.getItem("fav_cryptoLab");
+  if (fav) {
+    let fav_list = JSON.parse(fav)
+    fav_list.push(id)
+    localStorage.setItem("fav_cryptoLab", JSON.stringify(fav_list));
+    window.location.href = "/";
+  }else{
+    let fav_list = [id]
+    localStorage.setItem("fav_cryptoLab", JSON.stringify(fav_list));
+    window.location.href = "/";
+  }
+ 
+}
+const [CleanData, setCleanData] = useState(myData);
+if (isFetching) return <Loading/>;
   return (
     <>
       <div className="row">
-        {myData?.map((coin) => (
+        {CleanData?.map((coin) => (
           <div key={coin.name} className="col-md-3">
             {coin.change > 0 ? (
               <div className="card card-success ">
@@ -79,7 +125,7 @@ function CryptoCard({ simplified ,filter}) {
                 </div>
 
                 <div
-                  className="card-body bg-dark "
+                  className="card-body glassSucessBG"
                   style={{ display: "block" }}
                 >
                   <div className="row d-flex justify-content-center">
@@ -100,7 +146,7 @@ function CryptoCard({ simplified ,filter}) {
                           {millify(coin.change)} %
                         </kbd>
                       </p>
-                      <button className="btn btn-xs btn-warning"><i className="fas fa-star"></i> Add Favorite</button> 
+                      {!fav(coin.uuid) &&  <button className="btn btn-xs btn-warning" onClick={e=>AddFav(e,coin.uuid)}><i className="fas fa-star"></i> Add Favorite</button>}
                     </div>
                     <div className="col-6 center-block text-center">
                     <Link to={"/Lab/"+coin.name+"/"+coin.uuid+"/"}>
@@ -143,7 +189,7 @@ function CryptoCard({ simplified ,filter}) {
                 </div>
 
                 <div
-                  className="card-body bg-dark "
+                  className="card-body glassFailureBG "
                   style={{ display: "block" }}
                 >
                   <div className="row d-flex justify-content-center">
@@ -164,7 +210,7 @@ function CryptoCard({ simplified ,filter}) {
                           {millify(coin.change)} %
                         </kbd>
                       </p>
-                      {/* <button className="btn btn-xs btn-warning"><i className="fas fa-star"></i> Add Favorite</button>  */}
+                     {!fav(coin.uuid) &&  <button className="btn btn-xs btn-warning" onClick={e=>AddFav(e,coin.uuid)}><i className="fas fa-star"></i> Add Favorite</button>}
                     </div>
                     <div className="col-6 center-block text-center">
                     <Link to={"/Lab/"+coin.name+"/"+coin.uuid+"/"}>

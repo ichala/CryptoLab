@@ -11,7 +11,7 @@ function NewsCard({simplified}) {
     <>
     {cryptoNews?.value?.map((news)=>(
            <div key={news.name} className="col-md-12 col-lg-6 col-xl-4">
-         <div className="card bg-gradient-dark d-flex flex-fill">
+         <div className="card  d-flex flex-fill">
                 <div className="card-header text-muted border-bottom-0">
                 <h5 className="card-title">{news.category ? (news.category):("Random")}</h5> 
                  <div className="card-tools">
