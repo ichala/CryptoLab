@@ -14,8 +14,8 @@ function CryptoCard({ simplified ,filter}) {
   const { data: coinsList, isFetching } = useGetCoinsQuery(count);
   const [Coins, setCoins] = useState(coinsList?.data?.coins);
 
-
   let myData = Coins;
+
     switch (filter) {
       case "price":
         myData = [].concat(Coins)
@@ -46,18 +46,7 @@ function CryptoCard({ simplified ,filter}) {
         break;
     }
     let favo = localStorage.getItem("fav_cryptoLab");
-   if(simplified){myData= myData.filter(e =>{
-        if (favo) {
-        let fav_list = JSON.parse(favo);
-          if (fav_list.length>0) {
-           return !fav_list.includes(e.uuid)
-          }else{
-            return true
-          }
-        } else {
-          return true
-        }
-      });}
+   
 function fav(id) {
   let fav=JSON.parse(favo);
   let old = false;
@@ -92,12 +81,12 @@ function AddFav(e,id) {
   }
  
 }
-const [CleanData, setCleanData] = useState(myData);
+
 if (isFetching) return <Loading/>;
   return (
     <>
       <div className="row">
-        {CleanData?.map((coin) => (
+        {myData?.map((coin) => (
           <div key={coin.name} className="col-md-3">
             {coin.change > 0 ? (
               <div className="card card-success ">
