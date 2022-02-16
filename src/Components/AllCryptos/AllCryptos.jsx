@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useGetCoinsQuery } from "../../ApiCalls/CoinsApi";
 import CryptoCard from "../CryptoCard/CryptoCard";
+import Loading from "../Loading/Loading";
 function AllCryptos() {
   const { data, isFetching } = useGetCoinsQuery(100);
   const globalStats = data?.data?.stats;
   const [Sort, setSort] = useState("top");
-  if (isFetching) return "Loading...";
+  if (isFetching) return <Loading />;
 
   return (
     <div>

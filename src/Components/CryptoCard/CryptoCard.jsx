@@ -6,13 +6,14 @@ import {
   useGetCoinsQuery,
   
 } from "../../ApiCalls/CoinsApi";
+import Loading from "../Loading/Loading";
 import CardSmallChart from "./CardSmallChart/CardSmallChart";
 function CryptoCard({ simplified ,filter}) {
   const count = simplified ? 12 : 100;
   const { data: coinsList, isFetching } = useGetCoinsQuery(count);
   const [Coins, setCoins] = useState(coinsList?.data?.coins);
 
-  if (isFetching) return "Loading...";
+  if (isFetching) return <Loading/>;
   let myData = Coins;
     switch (filter) {
       case "price":
