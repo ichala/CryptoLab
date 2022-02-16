@@ -1,45 +1,106 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useGetCoinsQuery } from "../../ApiCalls/CoinsApi";
 
 function Sidebar() {
+  const { data: coinsList, isFetching } = useGetCoinsQuery(100);
+  let favo = localStorage.getItem("fav_cryptoLab");
+  let myData= coinsList?.data?.coins?.filter(e =>{
+    if (favo) {
+    let fav_list = JSON.parse(favo);
+      if (fav_list.length>0) {
+       return fav_list.includes(e.uuid)
+      }else{
+        return false
+      }
+    } else {
+      return false
+    }
+  });
   return (
     <div>
       <nav className="main-header navbar navbar-expand navbar-dark">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className="nav-link" data-widget="pushmenu" href="#" role="button">
+            <a
+              className="nav-link"
+              data-widget="pushmenu"
+              href="#"
+              role="button"
+            >
               <i className="fas fa-bars"></i>
             </a>
           </li>
-         
         </ul>
 
         <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link">
+              <img
+                className="ml-1"
+                height="20"
+                src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"
+                alt="Javascript"
+              />
+              <img
+                height="20"
+                className="ml-1"
+                src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png"
+                alt="REACT"
+              />
+              <img
+                height="20"
+                className="ml-1"
+                src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/redux/redux.png"
+                alt="Redux"
+              />
+              <img
+                height="20"
+                className="ml-1"
+                src="https://adminlte.io/themes/v3/dist/img/AdminLTELogo.png"
+                alt="AdminLte"
+              />
+              <img
+                height="20"
+                className="ml-1"
+                src="https://rapidapi.com/static-assets/default/favicon.ico"
+                alt="RAPID API"
+              />
+              <a
+                type="button"
+                href="https://github.com/ichala/CryptoLab"
+                target="_blank"
+                class="btn  btn-warning btn-xs ml-1"
+              >
+                <i class="fab fa-github"></i> Source Code
+              </a>
+            </a>
+          </li>
 
-      
-<li class="nav-item">
-   <a class="nav-link"><img className="ml-1" height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" alt="Javascript" />
-   <img height="20"className="ml-1"  src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png"  alt="REACT"/>
-   <img height="20" className="ml-1" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/redux/redux.png"  alt="Redux" />
-   <img height="20" className="ml-1" src="https://adminlte.io/themes/v3/dist/img/AdminLTELogo.png"  alt="AdminLte" />
-   <img height="20"className="ml-1"  src="https://rapidapi.com/static-assets/default/favicon.ico" alt="RAPID API" />
-   <a type="button" href="https://github.com/ichala/CryptoLab" target='_blank' class="btn  btn-warning btn-xs ml-1"><i class="fab fa-github"></i> Source Code</a>
-   </a>
-</li>
-
-
-<li class="nav-item">
-<a class="nav-link" data-widget="fullscreen" href="#" role="button">
-<i class="fas fa-expand-arrows-alt"></i>
-</a>
-</li>
-
-</ul>
+          <li class="nav-item">
+            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+              <i class="fas fa-expand-arrows-alt"></i>
+            </a>
+          </li>
+        </ul>
       </nav>
       <aside className="main-sidebar sidebar-dark-warning elevation-4">
-        <Link to="/" className="brand-link" style={{borderBottom:0}}>
-        <img src="/logo.gif" alt="AdminLTE Logo" className="brand-image img-circle elevation-3" ></img>
-          <h4><span className="brand-text font-weight-light">Crypto<sup className="text-muted"><span className="badge bg-warning"><b>Lab</b></span></sup></span></h4>
+        <Link to="/" className="brand-link" style={{ borderBottom: 0 }}>
+          <img
+            src="/logo.gif"
+            alt="AdminLTE Logo"
+            className="brand-image img-circle elevation-3"
+          ></img>
+          <h4>
+            <span className="brand-text font-weight-light">
+              Crypto
+              <sup className="text-muted">
+                <span className="badge bg-warning">
+                  <b>Lab</b>
+                </span>
+              </sup>
+            </span>
+          </h4>
           <hr className="bg-warning"></hr>
         </Link>
 
@@ -55,11 +116,11 @@ function Sidebar() {
                 <Link to="/" className="nav-link">
                   <i className="nav-icon fas fa-home"></i>
                   <p>Home</p>
-               </Link>
+                </Link>
               </li>
               <li className="nav-item">
                 <Link to="/Crypto/All" className="nav-link">
-                <i className="nav-icon fab fa-bitcoin"></i>
+                  <i className="nav-icon fab fa-bitcoin"></i>
                   <p>Cryptocurrencies</p>
                 </Link>
               </li>
@@ -69,7 +130,46 @@ function Sidebar() {
                   <p>News</p>
                 </a>
               </li>
-             
+              <li class="nav-header">Favorites</li>
+              {myData?.map((coin) =>
+                coin.change < 0 ? (
+                  <li class="nav-header text-center">
+                    {" "}
+                    <span class="badge  p-2 glassFailureBG text-danger">
+                      {coin.symbol}-USD {Number(coin.price).toFixed(3)}{" "}
+                      {coin.change}%
+                    </span>
+                  </li>
+                ) : (
+                  <li class="nav-header text-center">
+                    {" "}
+                    <span class="badge  p-2 glassSucessBG text-success">
+                      {coin.symbol}-USD {Number(coin.price).toFixed(3)} +
+                      {coin.change}%
+                    </span>
+                  </li>
+                )
+              )}
+              <li class="nav-header">Prices</li>
+              {coinsList?.data.coins.map((coin) =>
+                coin.change < 0 ? (
+                  <li class="nav-header text-center">
+                    {" "}
+                    <span class="badge  p-2 glassFailureBG text-danger">
+                      {coin.symbol}-USD {Number(coin.price).toFixed(3)}{" "}
+                      {coin.change}%
+                    </span>
+                  </li>
+                ) : (
+                  <li class="nav-header text-center">
+                    {" "}
+                    <span class="badge  p-2 glassSucessBG text-success">
+                      {coin.symbol}-USD {Number(coin.price).toFixed(3)} +
+                      {coin.change}%
+                    </span>
+                  </li>
+                )
+              )}
             </ul>
           </nav>
         </div>
