@@ -11,6 +11,7 @@ import {
 
   } from 'chart.js';
 import { useGetCryptoHistoryQuery } from '../../../ApiCalls/CoinsApi';
+import Loading from '../../Loading/Loading';
 ChartJSS.register(
     CategoryScale,
     LinearScale,
@@ -25,7 +26,7 @@ function BigChart({sort,id, coinDetails }) {
     coinId: id,
     timeperiod: sort,
   });
-  if (isFetching) return "Loading...";
+  if (isFetching) return 'loading...';
     const coinPrice = [];
     const coinTimestamp = [];
   

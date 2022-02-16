@@ -4,11 +4,12 @@ import millify from "millify";
 import CryptoCard from "../CryptoCard/CryptoCard";
 import { Link } from "react-router-dom";
 import NewsCard from "../NewsCard/NewsCard";
+import Loading from "../Loading/Loading";
 function Home() {
     const {data , isFetching} = useGetCoinsQuery(12);
     const globalStats= data?.data?.stats;
     
-    if (isFetching) return 'Loading...'
+    if (isFetching) return <Loading/>
   return (
     <div>
       {" "}

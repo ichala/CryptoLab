@@ -1,10 +1,11 @@
 import React from 'react'
   import { useGetCryptoNewsQuery } from '../../ApiCalls/cryptoNewsApi';
   import moment from 'moment';
+import Loading from '../Loading/Loading';
 function NewsCard({simplified}) {
   
     const { data: cryptoNews,isFetching } = useGetCryptoNewsQuery({newsCategory:"Cryptocurrencies", count: simplified ? 6:10 });
-    if (isFetching) return 'Loading...'
+    if (isFetching) return <Loading/>
     
   return (
     <>

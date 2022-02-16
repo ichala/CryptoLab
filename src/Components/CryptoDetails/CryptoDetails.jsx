@@ -7,6 +7,7 @@ import {
   useGetCryptoDetailsQuery,
 } from "../../ApiCalls/CoinsApi";
 import BigChart from "./BigChart/BigChart";
+import Loading from "../Loading/Loading";
 
 function CryptoDetails() {
   const { id } = useParams();
@@ -15,9 +16,8 @@ function CryptoDetails() {
   const time = ["3h", "24h", "7d", "30d", "3m", "1y", "3y", "5y"];
 
   const { data: coinDetails, isFetching } = useGetCryptoDetailsQuery(id);
-  if (isFetching) return "Loading...";
+  if (isFetching) return <Loading />;
 
-  console.log({ coinDetails });
   return (
     <>
       <section className="content-header">
@@ -151,27 +151,28 @@ function CryptoDetails() {
                         <table class="table table-striped">
                           <thead>
                             <tr>
-                             
-                             
                               <th>Name</th>
                               <th>Link</th>
-                          
                             </tr>
                           </thead>
                           <tbody>
-                            {coinDetails.data.coin?.links.map((link)=>(
- <tr>
- 
- 
- <td>{link.name} ({link.type})</td>
+                            {coinDetails.data.coin?.links.map((link) => (
+                              <tr>
+                                <td>
+                                  {link.name} ({link.type})
+                                </td>
 
- <td>
-   <a href={link.url} className="btn btn-sm btn-warning p-1"><b>visit</b></a>
- </td>
-</tr>
+                                <td>
+                                  <a
+                                    href={link.url}
+                                    target="_blank"
+                                    className="btn btn-sm btn-warning p-1"
+                                  >
+                                    <b>visit</b>
+                                  </a>
+                                </td>
+                              </tr>
                             ))}
-                           
-                        
                           </tbody>
                         </table>
                       </div>
