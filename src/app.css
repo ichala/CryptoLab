@@ -67,3 +67,26 @@ canvas{
       background-color: black !important;
       border-bottom: none;
   }
+ .blacked {
+    background-color: black !important;
+    border: 1px solid #f39c12 !important;
+}
+::-webkit-scrollbar {
+    background-color: transparent !important;
+    width :5px
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #f39c12;
+    border-radius: 3px;
+  }
+  .sidebar {
+    height: calc(100% - (3.5rem + 1px));
+    overflow-x: hidden;
+    overflow-y: initial;
+    padding-bottom: 0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0;
+    scrollbar-color: #f39c12 transparent!important;
+    scrollbar-width: none;
+}

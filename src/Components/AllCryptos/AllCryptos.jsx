@@ -2,11 +2,17 @@ import React, { useState } from "react";
 import CryptoCard from "../CryptoCard/CryptoCard";
 function AllCryptos() {
   const [Sort, setSort] = useState("top");
+  const [Search, setSearch] = useState("");
   return (
     <div>
       {" "}
       <section className="content-header">
-        <div className="row"></div>
+        <div className="row">
+        <div class="input-group m-3">
+
+<input  type="text" class="text-warning form-control blacked" placeholder="Search" onChange={e=>setSearch(e.target.value)} />
+</div>
+        </div>
       </section>
       <section className="content">
         <div className="container-fluid">
@@ -14,6 +20,8 @@ function AllCryptos() {
             <div className="col-12">
               <div className="card p-1">
                 <div className="card-header ">
+                
+              
                   <div className="card-tools ">
                   <form className="form-inline">
                   <div className="form-group ">
@@ -43,7 +51,7 @@ function AllCryptos() {
                 </div>
 
                 <div className="card-body m-1 p-0">
-                  <CryptoCard filter={Sort} />
+                  <CryptoCard filter={Sort} Search={Search} />
                 </div>
               </div>
             </div>
