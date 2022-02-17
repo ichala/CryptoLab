@@ -56,11 +56,7 @@ const CardSmallChart = ({ bcolor, color, spark }) => {
           maxTicksLimit: 4,
           display: false,
         },
-        gridLines: {
-          display: false,
-          
-          drawBorder: false,
-        },
+       
       },
       y: {
         stacked: true,

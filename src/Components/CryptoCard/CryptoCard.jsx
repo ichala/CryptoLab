@@ -12,7 +12,7 @@ import CardSmallChart from "./CardSmallChart/CardSmallChart";
 function CryptoCard({ simplified ,filter}) {
   const count = simplified ? 12 : 100;
   const { data: coinsList, isFetching } = useGetCoinsQuery(count);
-  const [Coins, setCoins] = useState(coinsList?.data?.coins);
+  const [Coins] = useState(coinsList?.data?.coins);
 
   let myData = Coins;
 
@@ -58,7 +58,7 @@ return old
   } else{
    
     fav?.forEach(coin => {
-      if (coin==id) {
+      if (coin===id) {
         old=true
       }
     });
@@ -95,7 +95,7 @@ if (isFetching) return <Loading/>;
                   <img
                     src={coin.iconUrl}
                     className="img-circle rounded-circle elevation-4 m-1"
-                    alt="User Image"
+                    alt={coin.name}
                     style={{ maxHeight: "20px", maxWidth: "20px" }}
                   />
 
@@ -159,7 +159,7 @@ if (isFetching) return <Loading/>;
                   <img
                     src={coin.iconUrl}
                     className="img-circle rounded-circle elevation-4 m-1"
-                    alt="User Image"
+                    alt={coin.name}
                     style={{ maxHeight: "20px" }}
                   />
 

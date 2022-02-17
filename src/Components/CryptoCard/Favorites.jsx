@@ -24,7 +24,7 @@ function removeFav(e,id) {
     e.preventDefault();
     let fav_list = JSON.parse(favo);
    let new_fav_list= fav_list.filter(coin=>{
-        if (coin==id) {
+        if (coin===id) {
             return false
         } else {
             return true
@@ -55,7 +55,7 @@ function removeFav(e,id) {
                   <img
                     src={fav.iconUrl}
                     className="img-circle rounded-circle elevation-4 m-1"
-                    alt="User Image"
+                    alt={fav.name}
                     style={{ maxHeight: "40px", maxWidth: "40px" }}
                   />
                   </span>
@@ -86,7 +86,7 @@ function removeFav(e,id) {
                   <img
                     src={fav.iconUrl}
                     className="img-circle rounded-circle elevation-4 m-1"
-                    alt="User Image"
+                    alt={fav.name}
                     style={{ maxHeight: "40px", maxWidth: "40px" }}
                   />
                   </span>
