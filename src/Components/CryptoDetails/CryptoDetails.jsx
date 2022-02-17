@@ -59,13 +59,6 @@ function CryptoDetails() {
                           ))}
                         </select>
                       </div>
-                      <button
-                        type="button"
-                        className="btn btn-tool"
-                        data-card-widget="collapse"
-                      >
-                        <i className="fas fa-minus"></i>
-                      </button>
                     </form>
                   </div>
                 </div>
