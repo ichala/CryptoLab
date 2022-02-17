@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function Loading() {
   return (
-    <div className='loader' ><img src="/logo.gif" alt="loading" /></div>
-  )
+    <div className="loader">
+      <img src="/logo.gif" alt="loading" />
+    </div>
+  );
 }
 
-export default Loading
+export default Loading;

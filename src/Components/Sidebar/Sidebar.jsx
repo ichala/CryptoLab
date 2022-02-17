@@ -5,16 +5,16 @@ import { useGetCoinsQuery } from "../../ApiCalls/CoinsApi";
 function Sidebar() {
   const { data: coinsList, isFetching } = useGetCoinsQuery(100);
   let favo = localStorage.getItem("fav_cryptoLab");
-  let myData= coinsList?.data?.coins?.filter(e =>{
+  let myData = coinsList?.data?.coins?.filter((e) => {
     if (favo) {
-    let fav_list = JSON.parse(favo);
-      if (fav_list.length>0) {
-       return fav_list.includes(e.uuid)
-      }else{
-        return false
+      let fav_list = JSON.parse(favo);
+      if (fav_list.length > 0) {
+        return fav_list.includes(e.uuid);
+      } else {
+        return false;
       }
     } else {
-      return false
+      return false;
     }
   });
   return (
@@ -22,20 +22,15 @@ function Sidebar() {
       <nav className="main-header navbar navbar-expand navbar-dark">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a
-              className="nav-link"
-              data-widget="pushmenu"
-              
-              role="button"
-            >
+            <a className="nav-link" data-widget="pushmenu" role="button">
               <i className="fas fa-bars"></i>
             </a>
           </li>
         </ul>
 
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link">
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+            <a className="nav-link">
               <img
                 className="ml-1"
                 height="20"
@@ -71,16 +66,16 @@ function Sidebar() {
                 href="https://github.com/ichala/CryptoLab"
                 target="_blank"
                 rel="noreferrer"
-                class="btn  btn-warning btn-xs ml-1"
+                className="btn  btn-warning btn-xs ml-1"
               >
-                <i class="fab fa-github"></i> Source Code
+                <i className="fab fa-github"></i> Source Code
               </a>
             </a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-              <i class="fas fa-expand-arrows-alt"></i>
+          <li className="nav-item">
+            <a className="nav-link" data-widget="fullscreen" href="#" role="button">
+              <i className="fas fa-expand-arrows-alt"></i>
             </a>
           </li>
         </ul>
@@ -125,58 +120,76 @@ function Sidebar() {
                   <p>Cryptocurrencies</p>
                 </Link>
               </li>
-              <li className="nav-item text-md">
+              {/* <li className="nav-item text-md">
                 <a href="/docs/3.1//layout.html" className="nav-link">
-                <i className="nav-icon fas fa-newspaper"></i>
+                  <i className="nav-icon fas fa-newspaper"></i>
                   <p>News</p>
                 </a>
-              </li>
+              </li> */}
               {isFetching && "loading..."}
-              {favo && <li class="nav-header"><i class="nav-icon fas fa-star text-warning"></i> Favorites</li>}
+              {favo && (
+                <li className="nav-header">
+                  <i className="nav-icon fas fa-star text-warning"></i> Favorites
+                </li>
+              )}
               {myData?.map((coin) =>
                 coin.change < 0 ? (
-                  <Link to={"/Lab/"+coin.name+"/"+coin.uuid+"/"}>
-                  <li key={coin.name} class="nav-header ">
-                    {" "}
-                   <span >
-                      {coin.symbol}-USD  <span className="text-danger"><i class="fas fa-caret-down"></i>{coin.change}%</span>
-                     
-                   </span>
-                  </li>
+                  <Link to={"/Lab/" + coin.name + "/" + coin.uuid + "/"}>
+                    <li key={coin.name} className="nav-header ">
+                      {" "}
+                      <span>
+                        {coin.symbol}-USD{" "}
+                        <span className="text-danger">
+                          <i className="fas fa-caret-down"></i>
+                          {coin.change}%
+                        </span>
+                      </span>
+                    </li>
                   </Link>
                 ) : (
-                  <Link to={"/Lab/"+coin.name+"/"+coin.uuid+"/"}>
-                  <li class="nav-header ">
-                    {" "}
-                    <span >
-                      {coin.symbol}-USD  <span className="text-success"><i class="fas fa-caret-up"></i>{coin.change}%</span>
-                     
-                   </span>
-                  </li>
+                  <Link to={"/Lab/" + coin.name + "/" + coin.uuid + "/"}>
+                    <li className="nav-header ">
+                      {" "}
+                      <span>
+                        {coin.symbol}-USD{" "}
+                        <span className="text-success">
+                          <i className="fas fa-caret-up"></i>
+                          {coin.change}%
+                        </span>
+                      </span>
+                    </li>
                   </Link>
                 )
               )}
-              <li class="nav-header"><i class="nav-icon fas fa-chart-line text-warning"></i> Prices</li>
+              <li className="nav-header">
+                <i className="nav-icon fas fa-chart-line text-warning"></i> Prices
+              </li>
               {coinsList?.data.coins.map((coin) =>
                 coin.change < 0 ? (
-                  <Link to={"/Lab/"+coin.name+"/"+coin.uuid+"/"}>
-                  <li key={coin.name} class="nav-header ">
-                    {" "}
-                    <span >
-                      {coin.symbol}-USD  <span className="text-danger"><i class="fas fa-caret-down"></i>{coin.change}%</span>
-                     
-                   </span>
-                  </li>
+                  <Link to={"/Lab/" + coin.name + "/" + coin.uuid + "/"}>
+                    <li key={coin.name} className="nav-header ">
+                      {" "}
+                      <span>
+                        {coin.symbol}-USD{" "}
+                        <span className="text-danger">
+                          <i className="fas fa-caret-down"></i>
+                          {coin.change}%
+                        </span>
+                      </span>
+                    </li>
                   </Link>
                 ) : (
-                  <Link to={"/Lab/"+coin.name+"/"+coin.uuid+"/"}>
-                  <li class="nav-header ">
-                    {" "}
-                    <span >
-                      {coin.symbol}-USD  <span className="text-success"><i class="fas fa-caret-up"></i>{coin.change}%</span>
-                     
-                   </span>
-                  </li>
+                  <Link to={"/Lab/" + coin.name + "/" + coin.uuid + "/"}>
+                    <li className="nav-header ">
+                      {" "}
+                      <span>
+                        {coin.symbol}-USD{" "}
+                        <span className="text-success">
+                          <i className="fas fa-caret-up"></i>
+                          {coin.change}%
+                        </span>
+                      </span>
+                    </li>
                   </Link>
                 )
               )}

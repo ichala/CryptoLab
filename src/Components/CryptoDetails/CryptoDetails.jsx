@@ -2,10 +2,7 @@ import millify from "millify";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import HTMLReactParser from "html-react-parser";
-import {
- 
-  useGetCryptoDetailsQuery,
-} from "../../ApiCalls/CoinsApi";
+import { useGetCryptoDetailsQuery } from "../../ApiCalls/CoinsApi";
 import BigChart from "./BigChart/BigChart";
 import Loading from "../Loading/Loading";
 
@@ -15,7 +12,7 @@ function CryptoDetails() {
   const time = ["3h", "24h", "7d", "30d", "3m", "1y", "3y", "5y"];
 
   const { data: coinDetails, isFetching } = useGetCryptoDetailsQuery(id);
-  console.log({coinDetails});
+  console.log({ coinDetails });
   if (isFetching) return <Loading />;
 
   return (
@@ -139,74 +136,83 @@ function CryptoDetails() {
                       </div>
                     </div>
                   </div>
-                  <div class="card">
-                    <div class="card-header">
-                      <h3 class="card-title">Projects Detail</h3>
-                      <div class="card-tools">
+                  <div className="card">
+                    <div className="card-header">
+                      <h3 className="card-title">Projects Detail</h3>
+                      <div className="card-tools">
                         <button
                           type="button"
-                          class="btn btn-tool"
+                          className="btn btn-tool"
                           data-card-widget="collapse"
                           title="Collapse"
                         >
-                          <i class="fas fa-minus"></i>
+                          <i className="fas fa-minus"></i>
                         </button>
-                       
                       </div>
                     </div>
-                    <div class="card-body" style={{display: "block"}}>
-                      <div class="row">
-                        <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
-                         
-                          <div class="row">
-                            <div class="col-12">
+                    <div className="card-body" style={{ display: "block" }}>
+                      <div className="row">
+                        <div className="col-12 col-md-12 col-lg-8 order-2 order-md-1">
+                          <div className="row">
+                            <div className="col-12">
                               <h4>Recent Activity</h4>
-                              {HTMLReactParser(coinDetails.data.coin?.description)}
+                              {HTMLReactParser(
+                                coinDetails.data.coin?.description
+                              )}
                             </div>
                           </div>
                         </div>
-                        <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
-                          <h3 class="text-warning">
-                          <img
-            className="mb-2"
-            height={30}
-            width={30}
-            src={coinDetails?.data?.coin?.iconUrl}
-            alt={coinDetails?.data?.coin}
-          />{coinDetails.data.coin?.name}
+                        <div className="col-12 col-md-12 col-lg-4 order-1 order-md-2">
+                          <h3 className="text-warning">
+                            <img
+                              className="mb-2"
+                              height={30}
+                              width={30}
+                              src={coinDetails?.data?.coin?.iconUrl}
+                              alt={coinDetails?.data?.coin}
+                            />
+                            {coinDetails.data.coin?.name}
                           </h3>
-                         
+
                           <br />
-                          <div class="text-muted">
-                            <p class="text-sm">
+                          <div className="text-muted">
+                            <p className="text-sm">
                               official Website
-                              <a class="d-block" target="_blank" rel="noreferrer" href={coinDetails.data.coin?.websiteUrl}>{coinDetails.data.coin?.websiteUrl}</a>
+                              <a
+                                className="d-block"
+                                target="_blank"
+                                rel="noreferrer"
+                                href={coinDetails.data.coin?.websiteUrl}
+                              >
+                                {coinDetails.data.coin?.websiteUrl}
+                              </a>
                             </p>
-                            <p class="text-sm">
+                            <p className="text-sm">
                               Rank & Symboles
-                              <h3 class="d-block">#{coinDetails.data.coin?.rank} - {coinDetails.data.coin?.symbol}</h3>
+                              <h3 className="d-block">
+                                #{coinDetails.data.coin?.rank} -{" "}
+                                {coinDetails.data.coin?.symbol}
+                              </h3>
                             </p>
                           </div>
-                          <h5 class="mt-5 text-muted">Useful Links</h5>
-                          <ul class="list-unstyled">
-                          {coinDetails.data.coin?.links.map((link) => (
- <li>
- <a href={link.url}class="btn-link text-secondary">
- <i class="fas fa-link mr-1"></i>
-   {link.name} ({link.type})
- </a>
-</li>
-                          ))}
-                           
-                         
-                          
+                          <h5 className="mt-5 text-muted">Useful Links</h5>
+                          <ul className="list-unstyled">
+                            {coinDetails.data.coin?.links.map((link) => (
+                              <li>
+                                <a
+                                  href={link.url}
+                                  className="btn-link text-secondary"
+                                >
+                                  <i className="fas fa-link mr-1"></i>
+                                  {link.name} ({link.type})
+                                </a>
+                              </li>
+                            ))}
                           </ul>
-                          
                         </div>
                       </div>
                     </div>
                   </div>
-                 
                 </div>
               </div>
             </div>

@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 import { useGetCoinsQuery } from "../../ApiCalls/CoinsApi";
 import Loading from "../Loading/Loading";
 import CardSmallChart from "./CardSmallChart/CardSmallChart";
-function CryptoCard({ simplified, filter,Search }) {
+function CryptoCard({ simplified, filter, Search }) {
   const count = simplified ? 12 : 100;
   const { data: coinsList, isFetching } = useGetCoinsQuery(count);
 
   if (isFetching) return <Loading />;
-  
+
   let myData = coinsList?.data?.coins;
   console.log(myData);
   console.log({ coinsList });
@@ -83,10 +83,12 @@ function CryptoCard({ simplified, filter,Search }) {
       window.location.href = "/";
     }
   }
-  if (Search || Search!="") {
-  myData= myData.filter(f=>(
-    f.name.toLowerCase().includes(Search) || f.symbol.toLowerCase().includes(Search)
-  ))
+  if (Search || Search != "") {
+    myData = myData.filter(
+      (f) =>
+        f.name.toLowerCase().includes(Search) ||
+        f.symbol.toLowerCase().includes(Search)
+    );
   }
   return (
     <>

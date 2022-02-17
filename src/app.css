@@ -1,92 +1,97 @@
 .glassSucess {
-    /* background-color: red; */
-    background: linear-gradient(0deg,#04551c,#0e3502);
-    border-color: #1ce64f;
+  /* background-color: red; */
+  background: linear-gradient(0deg, #04551c, #0e3502);
+  border-color: #1ce64f;
 }
 .glassSucessBG {
-    /* background-color: red; */
-    background: linear-gradient(0deg,#04551c00,#0e3502);
-    border-color: #1ce64f;
+  /* background-color: red; */
+  background: linear-gradient(0deg, #04551c00, #0e3502);
+  border-color: #1ce64f;
 }
-.glassSucessBG:hover{
-    /* background-color: red; */
-    background: linear-gradient(0deg,#17e6552d,#0e3502);
-    border-color: #1ce64f;
+.glassSucessBG:hover {
+  /* background-color: red; */
+  background: linear-gradient(0deg, #17e6552d, #0e3502);
+  border-color: #1ce64f;
 }
 .glassFailureBG {
-    /* background-color: red; */
-    background: linear-gradient(0deg,#2e020c2c,#170106);
-    border-color: #f52626;
+  /* background-color: red; */
+  background: linear-gradient(0deg, #2e020c2c, #170106);
+  border-color: #f52626;
 }
 .glassFailureBG:hover {
-    /* background-color: red; */
-    background: linear-gradient(0deg,#5c04195b,#170106);
-    border-color: #f52626;
+  /* background-color: red; */
+  background: linear-gradient(0deg, #5c04195b, #170106);
+  border-color: #f52626;
 }
 .glassWarneBG {
-    /* background-color: red; */
-    background: linear-gradient(0deg,#000000,#fda90ca1);
-    border-color: #f52626;
+  /* background-color: red; */
+  background: linear-gradient(0deg, #000000, #fda90ca1);
+  border-color: #f52626;
 }
 .glassFailure {
-    /* background-color: red; */
-    background: linear-gradient(0deg,#2e020c,#170106);
-    border-color: #f52626;
+  /* background-color: red; */
+  background: linear-gradient(0deg, #2e020c, #170106);
+  border-color: #f52626;
 }
 
 .failureCritical {
-    color: #e8093a;
+  color: #e8093a;
 }
 .successCritical {
-    color: #1ce64f;
+  color: #1ce64f;
 }
 body {
-    font-size: 0.85rem;
-    font-family: 'Montserrat', sans-serif !important;
-  }
-  [class*=sidebar-dark-] .nav-sidebar>.nav-item.menu-open>.nav-link, [class*=sidebar-dark-] .nav-sidebar>.nav-item:hover>.nav-link, [class*=sidebar-dark-] .nav-sidebar>.nav-item>.nav-link:focus {
-    background-color: rgba(243,156,18,1) !important;
-    color: black;
-    
+  font-size: 0.85rem;
+  font-family: "Montserrat", sans-serif !important;
 }
-canvas{
-
-    width:100% !important;
-    height:100%px !important;
-  
-  }
-  .loader{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-	max-width: 100px;
-    max-height: 100px;	
-  }
-  .dark-mode,.wrapper,.content-wrapper ,.card,.navbar-dark,.sidebar,.brand-link {
-      background-color: black !important;
-      border-bottom: none;
-  }
- .blacked {
-    background-color: black !important;
-    border: 1px solid #f39c12 !important;
+[class*="sidebar-dark-"] .nav-sidebar > .nav-item.menu-open > .nav-link,
+[class*="sidebar-dark-"] .nav-sidebar > .nav-item:hover > .nav-link,
+[class*="sidebar-dark-"] .nav-sidebar > .nav-item > .nav-link:focus {
+  background-color: rgba(243, 156, 18, 1) !important;
+  color: black;
+}
+canvas {
+  width: 100% !important;
+  height: 100%px !important;
+}
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100px;
+  max-height: 100px;
+}
+.dark-mode,
+.wrapper,
+.content-wrapper,
+.card,
+.navbar-dark,
+.sidebar,
+.brand-link {
+  background-color: black !important;
+  border-bottom: none;
+}
+.blacked {
+  background-color: black !important;
+  border: 1px solid #f39c12 !important;
 }
 ::-webkit-scrollbar {
-    background-color: transparent !important;
-    width :5px
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #f39c12;
-    border-radius: 3px;
-  }
-  .sidebar {
-    height: calc(100% - (3.5rem + 1px));
-    overflow-x: hidden;
-    overflow-y: initial;
-    padding-bottom: 0;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    padding-top: 0;
-    scrollbar-color: #f39c12 transparent!important;
-    scrollbar-width: none;
+  background-color: transparent !important;
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: #f39c12;
+  border-radius: 3px;
+}
+.sidebar {
+  height: calc(100% - (3.5rem + 1px));
+  overflow-x: hidden;
+  overflow-y: initial;
+  padding-bottom: 0;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0;
+  scrollbar-color: #f39c12 transparent !important;
+  scrollbar-width: none;
 }
