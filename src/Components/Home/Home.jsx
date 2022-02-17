@@ -119,7 +119,7 @@ function Home() {
               </div>
              
               <div className="card-body  m-1 p-0">
-              <CryptoCard simplified />
+              <CryptoCard simplified Search=""/>
               </div>
               <div className="card-footer">
                   <div className="text-right">

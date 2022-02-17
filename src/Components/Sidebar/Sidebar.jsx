@@ -136,10 +136,10 @@ function Sidebar() {
               {myData?.map((coin) =>
                 coin.change < 0 ? (
                   <Link to={"/Lab/"+coin.name+"/"+coin.uuid+"/"}>
-                  <li class="nav-header ">
+                  <li key={coin.name} class="nav-header ">
                     {" "}
                    <span >
-                      {coin.symbol}-USD  <span className="text-success">{coin.change}%</span>
+                      {coin.symbol}-USD  <span className="text-danger"><i class="fas fa-caret-down"></i>{coin.change}%</span>
                      
                    </span>
                   </li>
@@ -149,7 +149,7 @@ function Sidebar() {
                   <li class="nav-header ">
                     {" "}
                     <span >
-                      {coin.symbol}-USD  <span className="text-danger">{coin.change}%</span>
+                      {coin.symbol}-USD  <span className="text-success"><i class="fas fa-caret-up"></i>{coin.change}%</span>
                      
                    </span>
                   </li>
@@ -160,10 +160,10 @@ function Sidebar() {
               {coinsList?.data.coins.map((coin) =>
                 coin.change < 0 ? (
                   <Link to={"/Lab/"+coin.name+"/"+coin.uuid+"/"}>
-                  <li class="nav-header ">
+                  <li key={coin.name} class="nav-header ">
                     {" "}
                     <span >
-                      {coin.symbol}-USD  <span className="text-danger">{coin.change}%</span>
+                      {coin.symbol}-USD  <span className="text-danger"><i class="fas fa-caret-down"></i>{coin.change}%</span>
                      
                    </span>
                   </li>
@@ -173,7 +173,7 @@ function Sidebar() {
                   <li class="nav-header ">
                     {" "}
                     <span >
-                      {coin.symbol}-USD  <span className="text-success">{coin.change}%</span>
+                      {coin.symbol}-USD  <span className="text-success"><i class="fas fa-caret-up"></i>{coin.change}%</span>
                      
                    </span>
                   </li>

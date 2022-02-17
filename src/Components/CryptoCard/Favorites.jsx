@@ -46,6 +46,7 @@ function removeFav(e,id) {
       <div class="row">
           {myData?.map(fav=>(
             fav.change<0 ?(
+              
                 <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box glassFailure"><div class="card-tools">
 <button type="button" class="btn btn-tool" onClick={e=>removeFav(e,fav.uuid)} ><i class="fas fa-times"></i>
