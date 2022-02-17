@@ -654,7 +654,7 @@
           className: this._config.scrollbarTheme,
           sizeAutoCapable: true,
           scrollbars: {
-            autoHide: this._config.scrollbarAutoHide,
+            autoHide: true,
             clickScrolling: true
           }
         });
