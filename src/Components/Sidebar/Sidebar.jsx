@@ -25,7 +25,7 @@ function Sidebar() {
             <a
               className="nav-link"
               data-widget="pushmenu"
-              href="#"
+              
               role="button"
             >
               <i className="fas fa-bars"></i>
@@ -70,6 +70,7 @@ function Sidebar() {
                 type="button"
                 href="https://github.com/ichala/CryptoLab"
                 target="_blank"
+                rel="noreferrer"
                 class="btn  btn-warning btn-xs ml-1"
               >
                 <i class="fab fa-github"></i> Source Code
@@ -130,6 +131,7 @@ function Sidebar() {
                   <p>News</p>
                 </a>
               </li>
+              {isFetching && "loading..."}
               {favo && <li class="nav-header"><i class="nav-icon fas fa-star text-warning"></i> Favorites</li>}
               {myData?.map((coin) =>
                 coin.change < 0 ? (

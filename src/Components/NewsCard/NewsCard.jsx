@@ -39,7 +39,7 @@ function NewsCard({simplified}) {
                 <div className="card-footer">
                   <div className="text-right">
                     
-                    <a href={news.url} target="_blank" className="btn btn-sm btn-warning">
+                    <a href={news.url} target="_blank" rel="noreferrer" className="btn btn-sm btn-warning">
                     <i className="fas fa-angle-double-right"></i> Read More
                     </a>
                   </div>

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import HTMLReactParser from "html-react-parser";
 import {
-  useGetCryptoHistoryQuery,
+ 
   useGetCryptoDetailsQuery,
 } from "../../ApiCalls/CoinsApi";
 import BigChart from "./BigChart/BigChart";
@@ -11,7 +11,6 @@ import Loading from "../Loading/Loading";
 
 function CryptoDetails() {
   const { id } = useParams();
-  const { name } = useParams();
   const [Sort, setSort] = useState("24h");
   const time = ["3h", "24h", "7d", "30d", "3m", "1y", "3y", "5y"];
 
@@ -28,6 +27,7 @@ function CryptoDetails() {
             height={70}
             width={70}
             src={coinDetails?.data?.coin?.iconUrl}
+            alt={coinDetails?.data?.coin?.name}
           />
           {coinDetails?.data?.coin?.name}
           <sup className="text-muted">
@@ -172,6 +172,7 @@ function CryptoDetails() {
             height={30}
             width={30}
             src={coinDetails?.data?.coin?.iconUrl}
+            alt={coinDetails?.data?.coin}
           />{coinDetails.data.coin?.name}
                           </h3>
                          
@@ -179,7 +180,7 @@ function CryptoDetails() {
                           <div class="text-muted">
                             <p class="text-sm">
                               official Website
-                              <a class="d-block" target="_blank" href={coinDetails.data.coin?.websiteUrl}>{coinDetails.data.coin?.websiteUrl}</a>
+                              <a class="d-block" target="_blank" rel="noreferrer" href={coinDetails.data.coin?.websiteUrl}>{coinDetails.data.coin?.websiteUrl}</a>
                             </p>
                             <p class="text-sm">
                               Rank & Symboles

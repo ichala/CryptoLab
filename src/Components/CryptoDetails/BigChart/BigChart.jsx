@@ -11,7 +11,7 @@ import {
 
   } from 'chart.js';
 import { useGetCryptoHistoryQuery } from '../../../ApiCalls/CoinsApi';
-import Loading from '../../Loading/Loading';
+
 ChartJSS.register(
     CategoryScale,
     LinearScale,
@@ -35,7 +35,7 @@ function BigChart({sort,id, coinDetails }) {
     }
   
     for (let i = coinHistory?.data?.history?.length-1; i >= 0; i-- ) {
-        if (sort=="24h" || sort=="3h") {
+        if (sort==="24h" || sort==="3h") {
           let min=new Date(coinHistory?.data?.history[i].timestamp*1000).getMinutes();
           let hour=new Date(coinHistory?.data?.history[i].timestamp*1000).getHours();
           if (min<10) {
