@@ -1,5 +1,5 @@
 import millify from "millify";
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import { useGetCoinsQuery } from "../../ApiCalls/CoinsApi";
@@ -83,7 +83,7 @@ function CryptoCard({ simplified, filter, Search }) {
       window.location.href = "/";
     }
   }
-  if (Search || Search != "") {
+  if (Search || Search !== "") {
     myData = myData.filter(
       (f) =>
         f.name.toLowerCase().includes(Search) ||
